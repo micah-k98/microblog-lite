@@ -27,7 +27,7 @@ class AuthService
     // logged in. It returns either `true` or `false`.
     isLoggedIn()
     {
-        const loginData = getLoginData()
+        const loginData = this.getLoginData()
         return Boolean(loginData.token)
     }
 
@@ -50,7 +50,7 @@ class AuthService
             body: JSON.stringify(loginData),
         }
 
-        return fetch(apiBaseURL + "/auth/login", options)
+        return fetch(this.apiBaseURL + "/auth/login", options)
             .then(response => response.json())
             .then(loginData =>
             {
@@ -82,7 +82,7 @@ class AuthService
             },
         }
 
-        fetch(apiBaseURL + "/auth/logout", options)
+        fetch(this.apiBaseURL + "/auth/logout", options)
             .then(response => response.json())
             .then(data => console.log(data))
             .finally(() =>
