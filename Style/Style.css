@@ -5,23 +5,48 @@
     padding: 0;
     margin: 0;
 }
-.container{
-    width: 100%;
-    height: 100vh;
-}
+
 body {
     font-family: "Helvetica", Sans-Serif;
     background-image: url("../images/background-image.jpeg");
+
+    /* darkmode */
+    /* background-color: rgb(0, 0, 0); */
   }
+#homeContainer{
+    display: flex;
+    justify-content: space-between;
+    width: 150vw;
+    transition: transform 0.7s ease;
+}
+
+
+.login {
+    margin-left: 220px !important;
+ 
+}
+.register {
+    transform: translateX(100%)
+}
 
 .container{
+
     width: 500px;
+     height: 100vh;
     margin: auto;
     justify-content: center;
+    padding: 80px;
+    overflow: hidden;
    
 }
+
 .card{
     /* box-shadow: 0 4px 8px 0 rgb(202, 202, 202); */
+    /* darkmode */
+    /* background-color: rgb(163, 163, 163); */
+
+    display: flex;
+     box-sizing: border-box;
     border-radius: 30px;
     box-shadow: 45px 45px 45px -15px rgba(0,0,0,0.15), 
     inset 15px 15px 10px rgba(255,255,255,0.75),
@@ -38,7 +63,8 @@ body {
 }
 
 .btn{
-    margin-top: 100px;
+    margin-top: 10px;
+    width: 100%;
     
    
 }
@@ -53,6 +79,10 @@ body {
 }
 #title {
     color: rgb(0, 0, 0); /* Change 'red' to the color you prefer */
+  }
+  #signUp {
+    color: rgb(0, 0, 0); /* Change 'red' to the color you prefer */
+
   }
 
   hr{

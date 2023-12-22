@@ -1,95 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Landing Page</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.1.0/morph/bootstrap.min.css" integrity="sha512-kyDHBwDW1zUgovtPHu1Bm62GpalnJLTMXBqcb05Ocbg9x/LFvHMvD1DMLXwEt3CnVFioeKWaMoPvt3Pq0iSC2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="Style/Style.css">
-    
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.1.0/morph/bootstrap.min.css"
+      integrity="sha512-kyDHBwDW1zUgovtPHu1Bm62GpalnJLTMXBqcb05Ocbg9x/LFvHMvD1DMLXwEt3CnVFioeKWaMoPvt3Pq0iSC2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="Style/Style.css" />
+
+    <script src="JavaScript/login.js"></script>
+  </head>
+  <body>
     <section>
-          <!-- <video autoplay loop muted src="Imgs&vids/abstract_-_26011 (1080p).mp4"></video> -->
-        <main>
-            <div class="container mt-4 mx-auto">
+      <!-- <video autoplay loop muted src="Imgs&vids/abstract_-_26011 (1080p).mp4"></video> -->
+      <main>
+        <div class="container mt-4 w-100">
+          <div id="homeContainer" class="login">
+            <div
+              class="card border-primary mb-3 w-50"
+              style="max-width: 45rem; height: 50rem"
+            >
+              <div class="card-body">
+                <h1 class="card-title" id="title">Log In</h1>
 
-          
+                <div class="form-group d-md-grid m-5">
+                  <fieldset>
+                    <input
+                      class="form-control"
+                      style="background-color: rgb(242, 248, 252)"
+                      id=""
+                      type="text"
+                      placeholder="Username"
+                    />
+                    <input
+                      class="form-control"
+                      style="background-color: rgb(242, 248, 252)"
+                      id=""
+                      type="text"
+                      placeholder="Password"
+                    />
+                  </fieldset>
 
-                <div class="card border-primary mb-3" style="max-width: 45rem; height: 50rem;">
-                    
-                    <div class="card-body">
-                        <h1 class="card-title" id="title">Log In</h1>   
-                        
+                  <a href="#">
+                    <button type="button" id="title" class="btn btn-secondary">
+                      Log in
+                    </button>
+                  </a>
+                  <a href="#">Get help with signing in.</a>
+                  <hr
+                    style="height: 1px; border-width: 0; color: rgb(0, 0, 0)"
+                  />
 
-                        <div class="form-group d-md-grid m-5">
-                    
-                            <fieldset>
-                                <input class="form-control" style="background-color: rgb(242, 248, 252);" id="" type="text" placeholder="Username">
-                                <input class="form-control" style="background-color: rgb(242, 248, 252);" id="" type="text" placeholder="Password">
-                             </fieldset>
-                             
-
-                           
-                                <button type="button" id="title" class="btn btn-secondary">Log in</button>
-                                 <a  href="">Get help with signing in.</a>
-                        <hr style="height:1px;border-width:0;color:rgb(0, 0, 0);">
-                            
-                            <P class="card-text">Don't have an account?</P>
-                            <button type="button" id="title" class="btn btn-secondary" onclick="slide('next')">SignUp</button>
-                            
-                        </div>
- 
-                     </div>
-
-                     
-
+                  <p class="card-text">Don't have an account?</p>
+                  <a href="#">
+                    <button
+                      type="button"
+                      id="title"
+                      class="btn btn-secondary"
+                      onclick="slideToLeft()"
+                    >
+                      SignUp
+                    </button>
+                  </a>
                 </div>
-
-            
+              </div>
             </div>
-             
-        </main>
-    </section>
+         
 
-    <section>
-        <main>
-            <div class="container mt-4 mx-auto">
+            <div
+                class="card border-primary mb-3 w-50"
+                style="max-width: 45rem; height: 50rem"
+            >
+                <div class="card-body">
+                <h1 class="card-title" id="signUp">Sign Up</h1>
 
-                <div class="card border-primary mb-3" style="max-width: 45rem; height: 50rem;">
-                    
-                    <div class="card-body">
-                        <h1 class="card-title" id="title">Sign Up</h1>   
-                        
+                <div class="form-group d-md-grid m-5">
+                    <fieldset>
+                    <input
+                        class="form-control"
+                        style="background-color: rgb(242, 248, 252)"
+                        id=""
+                        type="text"
+                        placeholder="Email address"
+                    />
+                    <input
+                        class="form-control"
+                        style="background-color: rgb(242, 248, 252)"
+                        id=""
+                        type="text"
+                        placeholder="Full name"
+                    />
+                    <input
+                        class="form-control"
+                        style="background-color: rgb(242, 248, 252)"
+                        id=""
+                        type="text"
+                        placeholder="Username"
+                    />
+                    <input
+                        class="form-control"
+                        style="background-color: rgb(242, 248, 252)"
+                        id=""
+                        type="text"
+                        placeholder="Password"
+                    />
+                    </fieldset>
 
-                        <div class="form-group d-md-grid m-5">
-                    
-                            <fieldset>
-                                <input class="form-control" style="background-color: rgb(242, 248, 252);" id="" type="text" placeholder="Email address">
-                                <input class="form-control" style="background-color: rgb(242, 248, 252);" id="" type="text" placeholder="Full name">
-                                <input class="form-control" style="background-color: rgb(242, 248, 252);" id="" type="text" placeholder="Username">
-                                <input class="form-control" style="background-color: rgb(242, 248, 252);" id="" type="text" placeholder="Password">
-                             </fieldset>
-                             
-
-                           
-                                <button type="button" id="title" class="btn btn-secondary">Sign Up</button>
-                              
-                                <hr style="height:1px;border-width:0;color:rgb(0, 0, 0);">
-                                 <a  href="" onclick="slide('perv')">Already have an account?</a>
-                        
-                         
-                            
-                        </div>
- 
-                     </div>
-
-                     
-
+                    <a href="#">
+                    <button type="button" id="title" class="btn btn-secondary">
+                        Sign Up
+                    </button>
+                    </a>
+                    <hr style="height: 1px; border-width: 0; color: rgb(0, 0, 0)" />
+                    <a href="#" onclick="slideBackToHome()">Already have an account?</a>
+                </div>
                 </div>
             </div>
-            
-        </main>
+          </div>
+        </div>
+      </main>
     </section>
-</body>
+  </body>
 </html>
