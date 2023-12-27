@@ -1,0 +1,17 @@
+.breadcrumb {
+    justify-content: center;
+}
+
+.card {
+    background-color: #f0f5fa;
+    color: #414b69;
+}
+
+.card .row {
+    justify-content: space-between;
+}
+
+#deletePost {
+    border: none;
+    background-color: transparent;
+}
