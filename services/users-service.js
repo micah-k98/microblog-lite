@@ -1,7 +1,18 @@
-class UsersService {
-    baserUrl = "http://localhost:5000/api/users"
+"use strict"
 
-    //Create a user before logging in
+class UsersService extends ServicesBase 
+{
+    apiBaseUrl = "";
+    token = sessionStorage.token;
+
+    // This is needed combine the base URL (from extends ServicesBase) and the necessary resource
+    constructor() {
+        super();
+        this.apiBaseUrl = this.baseUrl + "api/users";
+    }
+
+    
+    // POST - Create a user before logging in
     async addUser(user) {
         // create a requestInfo object
         const requestUserInfo = {
@@ -13,4 +24,16 @@ class UsersService {
         return fetch(this.baseUrl, requestUserInfo).then(response => response.json())
     }
 
+
+    // GET
+    async getCurrent(username) {
+        const requestInfo = {
+            headers : {
+                "Authorization": `Bearer ${this.token}`
+            }
+        }
+
+
+        return fetch(`${this.apiBaseUrl}/${username}`, requestInfo).then(response => response.json());
+    }
 }
