@@ -53,3 +53,11 @@ async function saveNewPost() {
     // Direct it to my-posts page
     location.href = `/my-posts-page/my-posts.html?username=${userData.username}`
 }
+
+// For logout
+async function logoutButtonCliked() {
+    // await authService.logout();
+    sessionStorage.removeItem("username");
+    sessionStorage.removeItem("token");
+    location.href = "/index.html"
+}

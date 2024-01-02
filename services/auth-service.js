@@ -71,7 +71,7 @@ class AuthService
     // `fetch()` requests you may need to write.
     async logout()
     {
-        const loginData = getLoginData()
+        const loginData = this.getLoginData()
 
         // GET /auth/logout
         const options = {
@@ -97,7 +97,7 @@ class AuthService
                 window.sessionStorage.removeItem("token")
 
                 window.localStorage.removeItem("login-data")  // remove login data from LocalStorage
-                window.location.assign("/")  // redirect back to landing page
+                window.location.assign("/index.html")  // redirect back to landing page
             })
     }
 }
