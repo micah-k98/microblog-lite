@@ -14,15 +14,15 @@
     <link rel="stylesheet" href="Style/Style.css" />
 
     <script src="JavaScript/login.js"></script>
-  </head>
-  <body>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.1.0/morph/bootstrap.min.css" integrity="sha512-kyDHBwDW1zUgovtPHu1Bm62GpalnJLTMXBqcb05Ocbg9x/LFvHMvD1DMLXwEt3CnVFioeKWaMoPvt3Pq0iSC2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="Style/Style.css">
     <script src="services/auth-service.js"></script>
+    <script src="services/services-base.js"></script>    
     <script src="services/users-service.js"></script>
     <script src="users-page/addUsers.js"></script>
     
-</head>
+  </head>
+  
 <body>
     <section>
       <!-- <video autoplay loop muted src="Imgs&vids/abstract_-_26011 (1080p).mp4"></video> -->
@@ -41,15 +41,15 @@
                     <input
                       class="form-control"
                       style="background-color: rgb(242, 248, 252)"
-                      id=""
+                      id="userNameLogin"
                       type="text"
                       placeholder="Username"
                     />
                     <input
                       class="form-control"
                       style="background-color: rgb(242, 248, 252)"
-                      id=""
-                      type="text"
+                      id="passwordLogin"
+                      type="password"
                       placeholder="Password"
                     />
                   </fieldset>
@@ -91,33 +91,33 @@
                     <input
                         class="form-control"
                         style="background-color: rgb(242, 248, 252)"
-                        id=""
+                        id="emailRegister"
                         type="text"
                         placeholder="Email address"
                     />
                     <input
                         class="form-control"
                         style="background-color: rgb(242, 248, 252)"
-                        id=""
+                        id="fullNameRegister"
                         type="text"
                         placeholder="Full name"
                     />
                     <input
                         class="form-control"
                         style="background-color: rgb(242, 248, 252)"
-                        id=""
+                        id="userNameRegister"
                         type="text"
                         placeholder="Username"
                     />
                     <input
                         class="form-control"
                         style="background-color: rgb(242, 248, 252)"
-                        id=""
-                        type="text"
+                        id="passwordRegister"
+                        type="password"
                         placeholder="Password"
                     />
                     <a href="#">
-                    <button type="button" id="title" class="btn btn-secondary">
+                    <button type="button" id="signUpButton" class="btn btn-secondary">
                         Sign Up
                     </button>
                     </a>
