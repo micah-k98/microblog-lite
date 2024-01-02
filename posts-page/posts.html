@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="posts.css" />
     <link rel="stylesheet" href="/light-dark-setting/light-dark.css">
 
+    <script src="posts.js"></script>
     <script src="/services/services-base.js"></script>
     <script src="/services/auth-service.js"></script>
     <script src="/services/users-service.js"></script>
@@ -21,6 +22,7 @@
     <script src="/services/likes-service.js"></script>
     <script src="/light-dark-setting/light-dark.js"></script>
   </head>
+
   <body>
     <main class="container-fluid mt-5">
       <div class="row">
@@ -35,7 +37,7 @@
             </div>
           </div>
           <hr />
-          <a class="side-bar-home" id="home" href="#">
+          <a class="side-bar-home" id="home" href="/posts-page/posts.html">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="25"
@@ -53,7 +55,11 @@
             </svg>
             <h4 class="mb-0 ms-2">Home</h4>
           </a>
-          <a class="side-bar-post" id="myPosts" href="#">
+          <a
+            class="side-bar-post"
+            id="myPosts"
+            href="/my-posts-page/my-posts.html"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="25"
@@ -71,7 +77,11 @@
             </svg>
             <h4 class="mb-0 ms-2">My Posts</h4>
           </a>
-          <a class="side-bar-like" id="likedPosts" href="#">
+          <a
+            class="side-bar-like"
+            id="likedPosts"
+            href="/liked-posts-page/liked-posts.html"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="25"
@@ -87,7 +97,11 @@
             </svg>
             <h4 class="mb-0 ms-2">Liked Posts</h4>
           </a>
-          <a class="side-bar-profile" id="profile" href="#">
+          <a
+            class="side-bar-profile"
+            id="profile"
+            href="/profile-page/profile.html"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="30"
@@ -109,27 +123,27 @@
             </button>
           </div>
         </section>
-        <section class="post-section col-8 text-center">
+        <section class="post-section col-8">
           <!-- template to use for each post -->
           <template class="mt-5" id="postTemplate">
             <div class="card border-light mb-3">
               <div class="card-header fw-bold">
-                  <div class="user-time">
-                    <div id="userName">anya.forger</div>
-                    <div class="opacity-50 pb-1">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-dot"
-                        viewBox="0 0 16 16"
-                      >
-                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3" />
-                      </svg>
-                    </div>
-                    <div id="timeStamp" class="opacity-75"></div>
+                <div class="user-time">
+                  <div id="userName">anya.forger</div>
+                  <div class="opacity-50 pb-1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-dot"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3" />
+                    </svg>
                   </div>
+                  <div id="timeStamp" class="opacity-75"></div>
+                </div>
               </div>
               <div class="card-body">
                 <p class="card-text" id="textPost">
@@ -159,6 +173,12 @@
               </div>
             </div>
           </template>
+          <!-- container for all posts -->
+          <div class="mt-4" id="postsContainer"></div>
+
+          <div class="mt-5 text-center" id="errorMessage" hidden>
+            <h5>I'm sorry, there's no record found. Please try again!</h5>
+          </div>
         </section>
       </div>
     </main>
