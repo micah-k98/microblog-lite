@@ -38,6 +38,17 @@ class PostService extends ServicesBase
         return fetch(`${this.apiBaseUrl}?limit=100&username=${userName}`, requestInfo).then(response => response.json())
     }
 
+    // GET
+    async getAll() {
+        const requestInfo = {
+            headers: {
+                "Authorization": `Bearer ${this.token}`
+            }
+        }
+
+        return fetch(`${this.apiBaseUrl}?limit=100`, requestInfo).then(response => response.json())
+    }
+
     // DELETE
     async delete(id) {
         const requestInfo = {
