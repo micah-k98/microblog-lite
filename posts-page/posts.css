@@ -1,5 +1,73 @@
-.breadcrumb {
-    justify-content: center;
+
+
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;500;600;700;900&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap');
+
+body {
+    font-family: 'Inconsolata', monospace;
+}
+
+a {
+    text-decoration: none;
+}
+
+hr {
+    border: 1px solid;
+    margin: 3rem 0;
+}
+
+.side-bar-section,
+.post-section {
+    padding: 3rem;
+}
+
+.side-bar-name,
+.side-bar-home,
+.side-bar-post,
+.side-bar-like,
+.side-bar-profile {
+    display: flex;
+    align-items: center;
+}
+
+.side-bar-home,
+.side-bar-post,
+.side-bar-like,
+.side-bar-profile {
+    margin: 1rem 2rem 1rem 2rem;
+}
+
+.card-name, .post-content {
+    display: flex;
+    justify-content: start !important;
+}
+
+/* #logoutButton {
+    margin-top: 3rem;
+} */ 
+
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;500;600;700;900&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap');
+
+
+body {
+    font-family: 'Inconsolata', monospace;
+}
+
+a {
+    text-decoration: none;
+}
+
+hr {
+    border: 1px solid;
+    margin: 3rem 0;
+}
+
+
+/* MAIN CONTEXT */
+
+.post-section {
+    height: 90vh;
+    overflow: scroll;
+    overflow-x: hidden;
 }
 
 .card {
@@ -11,7 +79,18 @@
     justify-content: space-between;
 }
 
-#deletePost {
+.user-time {
+    display: flex;
+    column-gap: 1rem;
+    align-items: center;
+}
+
+.like-section {
+    display: flex;
+}
+
+#deletePost,
+#likePost {
     border: none;
     background-color: transparent;
 }

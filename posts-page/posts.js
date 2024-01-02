@@ -1,11 +1,14 @@
-"use strict"
+let authService;
+let postService;
+let servicesBase;
+let usersService;
+let likesService;
 
-let postService, likesService;
-let postTemplate, postsContainer, postSection;
-
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded",()=>{
     // Set variables
+    authService = new AuthService();
     postService = new PostService();
+    usersService = new UsersService();
     likesService = new LikesService();
 
     postTemplate = document.getElementById("postTemplate");
@@ -19,8 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 async function getAllPosts() {
-    const userName = sessionStorage.username;
-    const allPosts = await postService.getByUser(userName);
+    //const userName = sessionStorage.username;
+    const allPosts = await postService.getAll();
 
     // Will sort date from the most current to oldest post
     allPosts.sort((left, right) => {
@@ -40,8 +43,10 @@ async function getAllPosts() {
 }
 
 function displayPosts(post) {
-    let card = postTemplate.content.cloneNode(true);
+    // clone template html instead of building the card by hand
+    const card = postTemplate.content.cloneNode(true);
 
+    // set all values
     card.getElementById("userName").innerText = post.username;
     card.getElementById("timeStamp").innerText = getDate(post);
     card.getElementById("textPost").innerText = post.text;
@@ -88,10 +93,6 @@ function displayPosts(post) {
     const likeId = isItLiked(post, likePostButton);
 
     postsContainer.appendChild(card);
-}
-
-function closeMessage() {
-    window.location.reload();
 }
 
 // For the timestamp
