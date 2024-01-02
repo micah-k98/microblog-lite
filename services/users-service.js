@@ -21,7 +21,7 @@ class UsersService extends ServicesBase
             headers: {"Content-type": "application/json;charset=UTF-8"}
         }
 
-        return fetch(this.baseUrl, requestUserInfo).then(response => response.json())
+        return fetch(this.apiBaseUrl, requestUserInfo).then(response => response.json())
     }
 
 
