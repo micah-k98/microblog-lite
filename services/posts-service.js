@@ -26,4 +26,15 @@ class PostService extends ServicesBase
 
         return fetch(this.apiBaseUrl, requestInfo).then(response => response.json());
     }
+
+    // GET
+    async getByUser(userName) {
+        const requestInfo = {
+            headers: {
+                "Authorization": `Bearer ${this.token}`
+            }
+        }
+
+        return fetch(`${this.apiBaseUrl}?limit=100&username=${userName}`, requestInfo).then(response => response.json())
+    }
 }

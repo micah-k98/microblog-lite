@@ -48,6 +48,7 @@ function displayPosts(post) {
     card.getElementById("textPost").innerText = post.text;
 
     
+    
     postsContainer.appendChild(card);
 }
 
