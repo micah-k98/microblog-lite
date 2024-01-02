@@ -3,8 +3,8 @@ let userService
 document.addEventListener("DOMContentLoaded", () => {
     userService = new UsersService()
 
-    const signUpButton = document.getElementById("signUp")
-    signUp.addEventListener("click", saveNewUser)
+    const signUpButton = document.getElementById("signUpButton")
+    signUpButton.addEventListener("click", saveNewUser)
 
 })
 
@@ -14,9 +14,9 @@ async function saveNewUser(event)
 
     // save new user to the API
     // build a user object
-    const username = document.getElementById("userName").value
-    const fullName = document.getElementById("fullName").value
-    const password = document.getElementById("password").value
+    const username = document.getElementById("userNameRegister").value
+    const fullName = document.getElementById("fullNameRegister").value
+    const password = document.getElementById("passwordRegister").value
 
     const user = {
         "username": username,
@@ -25,7 +25,7 @@ async function saveNewUser(event)
     }
 
     console.log(user);
-    const newUser = await userService.add(user)
+    const newUser = await userService.addUser(user)
     console.log(newUser);
     
     // go back to the home page
