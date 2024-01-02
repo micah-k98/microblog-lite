@@ -9,14 +9,14 @@
 }
 
 body.dark-mode {
-    background-color: #1a1a1a;
+    background-color: #222442;
     color: #e8e8e8 !important;
 }
 
 .bi-sun {
-    color: #000000 !important;
+    color: #ffffff !important;
 }
 
 .bi-moon-stars {
-    color: #ffffff !important;
+    color: #000000 !important;
 }
