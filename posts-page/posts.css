@@ -1,20 +1,4 @@
-/* .breadcrumb {
-    justify-content: center;
-}
 
-.card {
-    background-color: #f0f5fa;
-    color: #414b69;
-}
-
-.card .row {
-    justify-content: space-between;
-}
-
-#deletePost {
-    border: none;
-    background-color: transparent;
-} */
 
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;500;600;700;900&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap');
 
@@ -60,3 +44,53 @@ hr {
 /* #logoutButton {
     margin-top: 3rem;
 } */ 
+
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;500;600;700;900&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap');
+
+
+body {
+    font-family: 'Inconsolata', monospace;
+}
+
+a {
+    text-decoration: none;
+}
+
+hr {
+    border: 1px solid;
+    margin: 3rem 0;
+}
+
+
+/* MAIN CONTEXT */
+
+.post-section {
+    height: 90vh;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.card {
+    background-color: #f0f5fa;
+    color: #414b69;
+}
+
+.card .row {
+    justify-content: space-between;
+}
+
+.user-time {
+    display: flex;
+    column-gap: 1rem;
+    align-items: center;
+}
+
+.like-section {
+    display: flex;
+}
+
+#deletePost,
+#likePost {
+    border: none;
+    background-color: transparent;
+}
