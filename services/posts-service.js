@@ -37,4 +37,16 @@ class PostService extends ServicesBase
 
         return fetch(`${this.apiBaseUrl}?limit=100&username=${userName}`, requestInfo).then(response => response.json())
     }
+
+    // DELETE
+    async delete(id) {
+        const requestInfo = {
+            method: "DELETE",
+            headers: {
+                "Authorization": `Bearer ${this.token}`
+            }
+        }
+
+        return fetch(`${this.apiBaseUrl}/${id}`, requestInfo)
+    }
 }
