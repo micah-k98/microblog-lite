@@ -9,8 +9,9 @@
 }
 
 body.dark-mode {
-    background-color: #222442;
+    background-color: #343655;
     color: #e8e8e8 !important;
+    
 }
 
 .bi-sun {
@@ -20,3 +21,15 @@ body.dark-mode {
 .bi-moon-stars {
     color: #000000 !important;
 }
+
+body.dark-mode a {
+    color: #d7dbdb !important; /* Set the desired link color in dark mode */
+}  
+
+body.dark-mode h2 {
+    color: #d7dbdb !important; /* Set the desired link color in dark mode */
+}   
+
+body.dark-mode h4 {
+    color: #d7dbdb !important; /* Set the desired link color in dark mode */
+}   
