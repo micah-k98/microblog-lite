@@ -33,7 +33,6 @@ async function getAllPosts() {
         allPosts.forEach(post => {
             displayPosts(post);
         });
-        document.getElementById("errorMessage").hidden = true;
     }
     else {
         document.getElementById("errorMessage").hidden = false;
