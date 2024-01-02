@@ -33,7 +33,6 @@ async function getAllPosts() {
         allPosts.forEach(post => {
             displayPosts(post);
         });
-        document.getElementById("errorMessage").hidden = true;
     }
     else {
         document.getElementById("errorMessage").hidden = false;
@@ -97,20 +96,31 @@ function closeMessage() {
 
 // For the timestamp
 function getDate(post) {
+
     const postDate = new Date(post.createdAt);
     const currentDate = new Date();
     const differenceInTime = currentDate.getTime() - postDate.getTime();
-    const differenceInDays = (differenceInTime / (1000 * 3600 * 24));
-    
-    if (differenceInDays < 1) {
-        const differenceInHours = (differenceInTime / (60*60*1000));
+    const differenceInDays = Math.floor(differenceInTime / (1000 * 3600 * 24));
 
-        if (differenceInHours < 1) return `${Math.floor(differenceInTime / (60*1000))}m ago`;
-        else return `${Math.floor(differenceInTime / (60*60*1000))}h ago`;
-    }
-    else {
+    if (differenceInDays < 1) {
+        const differenceInHours = Math.floor(differenceInTime / (60 * 60 * 1000));
+
+        if (differenceInHours < 1) {
+            const differenceInMinutes = Math.floor(differenceInTime / (60 * 1000));
+
+            if (differenceInMinutes < 1) {
+                const differenceInSeconds = Math.floor(differenceInTime / 1000);
+                return `${differenceInSeconds}s ago`;
+            } else {
+                return `${differenceInMinutes}m ago`;
+            }
+        } else {
+            return `${differenceInHours}h ago`;
+        }
+    } else {
         return postDate.toLocaleDateString();
     }
+
 }
 
 // Will check if each post has been liked by the current logged-in user
