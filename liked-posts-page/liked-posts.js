@@ -28,15 +28,20 @@ async function getAllPosts() {
     })
 
     postsContainer.innerText = "";
+    let counter = 0;
 
     if (allPosts.length != 0) {
         allPosts.forEach(post => {
             post.likes.forEach(like => {
-                if (like.username == sessionStorage.username) displayPosts(post);
+                if (like.username == sessionStorage.username) {
+                    displayPosts(post);
+                    counter++;
+                }
             })
         });
     }
-    else {
+    
+    if (allPosts.length == 0 || counter == 0) {
         document.getElementById("errorMessage").hidden = false;
     }    
 }
@@ -50,6 +55,14 @@ function displayPosts(post) {
 
     const likePostButton = card.getElementById("likePost");
     const likeId = isItLiked(post, likePostButton);
+
+            likePostButton.addEventListener("click", async () => {
+                // Call the api to like/unlike the post
+                const liked = await likesService.unliked(likeId);
+
+                // To reload all posts
+                getAllPosts();
+            })
 
     // To show the number of likes a post have
     if (post.likes.length != 0) card.getElementById("numOfLikes").innerText = post.likes.length;
