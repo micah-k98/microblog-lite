@@ -78,8 +78,19 @@
                  <!-- end of side-bar section -->
 
                 <section class="post-section col-8">
-                    <div class="text-center">
-                        <h2 class="fw-bolder">LIKED POSTS</h2>
+                    <div class="row sort-div">
+                        <div class="text-start col">
+                            <h2 class="fw-bolder">LIKED POSTS</h2>
+                        </div>
+                        <hr class="col-5 mt-auto mb-auto me-5">
+                        <div class="form-group col-4">
+                            <select name="sortSelect" id="sortSelect" class="form-select pt-2 pb-2">
+                                <option value="0">Sort By</option>
+                                <option selected value="recent">Most Recent</option>
+                                <option value="user">Username</option>
+                                <option value="popularity">Popularity</option>
+                            </select>
+                        </div>
                     </div>
 
                     <!-- template to use for each post -->
