@@ -49,7 +49,7 @@ hr {
 }
 
 .post-section .row {
-    text-align: center;
+    align-items: center;
 }
 
 .post-section button {
