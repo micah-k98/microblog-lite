@@ -43,7 +43,7 @@ body.dark-mode a {
     color: #d7dbdb !important; /* Set the desired link color in dark mode */
 }  
 
-body.dark-mode h1 {
+body.dark-mode #userFullName {
     color: #d7dbdb !important; /* Set the desired link color in dark mode */
 } 
 
