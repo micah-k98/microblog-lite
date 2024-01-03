@@ -50,7 +50,7 @@ body.dark-mode h2 {
 body.dark-mode h4 {
     color: #d7dbdb !important; /* Set the desired link color in dark mode */
 }   
-
+ 
 .dark-mode .card-body .bi-sun {
     color: #343655 !important;
     margin-top: 15px;
