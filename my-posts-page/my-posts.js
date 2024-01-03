@@ -149,14 +149,14 @@ function isItLiked(post, likePostButton) {
 function sortPosts() {
     switch (sortSelect.value) {
         case "0":
-        case "recent":
+        case "recent": // newest to oldest
             allPosts.sort((left, right) => {
                 return new Date(right.createdAt) - new Date(left.createdAt)
             })
             break;
-        case "popularity":
+        case "popularity": // most to least likes
             allPosts.sort((left, right) => {
-                return new Date(right.likes.length) - new Date(left.likes.length)
+                return right.likes.length - left.likes.length
             })
             break;
         default:
