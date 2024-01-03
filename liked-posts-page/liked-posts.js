@@ -2,6 +2,7 @@
 
 let postService, likesService, authService;
 let postTemplate, postsContainer, postSection;
+let allPosts;
 
 document.addEventListener("DOMContentLoaded", () => {
     // Set variables
@@ -12,8 +13,10 @@ document.addEventListener("DOMContentLoaded", () => {
     postTemplate = document.getElementById("postTemplate");
     postsContainer = document.getElementById("postsContainer");
 
+    const sortSelect = document.getElementById("sortSelect");
+
     // Register events
-    
+    sortSelect.addEventListener("change", getAllPosts);
 
     // Call these functions when the page loaded
     getAllPosts();
@@ -21,12 +24,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 async function getAllPosts() {
     const userName = sessionStorage.username;
-    const allPosts = await postService.getAll();
+    allPosts = await postService.getAll();
 
-    // Will sort date from the most current to oldest post
-    allPosts.sort((left, right) => {
-        return new Date(right.createdAt) - new Date(left.createdAt)
-    })
+    // Sorting
+    sortPosts();
 
     postsContainer.innerText = "";
     let counter = 0;
@@ -108,6 +109,30 @@ function isItLiked(post, likePostButton) {
         }
     }
     return likeId;
+}
+
+// For sorting
+function sortPosts() {
+    switch (sortSelect.value) {
+        case "0":
+        case "recent":
+            allPosts.sort((left, right) => {
+                return new Date(right.createdAt) - new Date(left.createdAt)
+            })
+            break;
+        case "user":
+            allPosts.sort((left, right) => {
+                return left.username < right.username ? -1 : 1
+            })
+            break;
+        case "popularity":
+            allPosts.sort((left, right) => {
+                return new Date(right.likes.length) - new Date(left.likes.length)
+            })
+            break;
+        default:
+            break;
+    }
 }
 
 // For logout
