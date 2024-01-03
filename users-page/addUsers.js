@@ -13,9 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 })
 
-// This function saves the new user registered
-async function saveNewUser(event)
-{
+async function saveNewUser(event) {
     event.preventDefault()
 
     // save new user to the API
@@ -33,7 +31,7 @@ async function saveNewUser(event)
     console.log(user);
     const newUser = await userService.addUser(user)
     console.log(newUser);
-    
+
     // go back to the home page
     location.href = "/index.html"
 }
@@ -51,6 +49,22 @@ async function userLogin(event) {
 
     }
 
-    await authService.login(userLogin)
+    try {
+        // Attempt to log in
+        await authService.login(userLogin);
+        // If successful, you can redirect or perform other actions
+        console.log("Login successful");
+    } catch (error) {
+        // Handle authentication errors
+        console.error("Login failed:", error.message);
+
+        // Display a message to the user indicating that the login failed
+        alert("Incorrect username or password. Please try again.");
+
+        // Optionally, you can clear the input fields for the user to retry
+        document.getElementById("userNameLogin").value = "";
+        document.getElementById("passwordLogin").value = "";
+        document.getElementById("userNameLogin").focus();
+    }
 
 }
