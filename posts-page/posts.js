@@ -20,10 +20,12 @@ document.addEventListener("DOMContentLoaded",()=>{
     
     const sortSelect = document.getElementById("sortSelect");
     const searchButton = document.getElementById("searchButton");
+    const goBackButton = document.getElementById("goBackButton");
 
     // Register events
     sortSelect.addEventListener("change", getAllPosts);
     searchButton.addEventListener("click", getAllPosts);
+    goBackButton.addEventListener("click", goBackButtonClicked);
     
     // Call these functions when the page loaded
     getAllPosts();
@@ -148,6 +150,12 @@ async function filteredOrNot() {
     const searchInput = document.getElementById("searchInput").value;
     if (searchInput != "") allPosts = await postService.getByUser(searchInput);
     else allPosts = await postService.getAll();
+}
+
+// For go-back button
+function goBackButtonClicked() {
+    document.getElementById("searchInput").value = "";
+    getAllPosts();
 }
 
 // For sorting
