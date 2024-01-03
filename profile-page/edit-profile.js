@@ -2,7 +2,7 @@
 
 let authService, usersService;
 let userName, userData;
-let newUsername, newName, newBio, newPassword, updateButton;
+let newUsername, newName, newBio, newPassword, updateButton, myModal;
 
 document.addEventListener("DOMContentLoaded", ()=> {
     // Set variables
@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", ()=> {
     newPassword = document.getElementById("newPassword");
 
     updateButton = document.getElementById("updateButton");
+    myModal = bootstrap.Modal.getOrCreateInstance('#updatedMessage');
 
     // Register events
     updateButton.addEventListener("click", updateButtonClicked)
@@ -45,8 +46,7 @@ async function updateButtonClicked(event) {
     const updated = await usersService.updateInfo(userName, newData);
 
     if (updated.status >= 200 && updated.status < 300) {
-        updateButton.setAttribute("data-bs-toggle", "modal");
-        updateButton.setAttribute("data-bs-target", "#updatedMessage");
+        myModal.show();
     }
 }
 
