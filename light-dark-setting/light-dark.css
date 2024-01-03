@@ -75,3 +75,8 @@ body.dark-mode h5 {
 body.dark-mode #goBackButton {
     color: #d7dbdb !important;
 }
+
+.post-section .bi-heart-fill,
+.bi-heart {
+    color: #9e4c4cd0;
+}
