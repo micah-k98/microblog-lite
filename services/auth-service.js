@@ -54,8 +54,11 @@ class AuthService
             .then(response => response.json())
             .then(loginData =>
             {
+                sessionStorage.token = loginData.token
+                sessionStorage.username = loginData.username
+
                 window.localStorage.setItem("login-data", JSON.stringify(loginData))
-                window.location.assign("/posts")  // redirect
+                window.location.assign("/posts-page/posts.html")  // redirect
 
                 return loginData
             })
@@ -68,7 +71,7 @@ class AuthService
     // `fetch()` requests you may need to write.
     async logout()
     {
-        const loginData = getLoginData()
+        const loginData = this.getLoginData()
 
         // GET /auth/logout
         const options = {
@@ -90,9 +93,11 @@ class AuthService
                 // We're using `finally()` so that we will continue with the
                 // browser side of logging out (below) even if there is an 
                 // error with the fetch request above.
+                window.sessionStorage.removeItem("username")
+                window.sessionStorage.removeItem("token")
 
                 window.localStorage.removeItem("login-data")  // remove login data from LocalStorage
-                window.location.assign("/")  // redirect back to landing page
+                window.location.assign("/index.html")  // redirect back to landing page
             })
     }
 }

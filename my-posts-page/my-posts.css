@@ -1,6 +1,5 @@
-
-
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;500;600;700;900&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap');
+
 
 body {
     font-family: 'Inconsolata', monospace;
@@ -14,6 +13,8 @@ hr {
     border: 1px solid;
     margin: 3rem 0;
 }
+
+/* SIDE BAR */
 
 .side-bar-section,
 .post-section {
@@ -36,29 +37,15 @@ hr {
     margin: 1rem 2rem 1rem 2rem;
 }
 
-.card-name, .post-content {
-    display: flex;
-    justify-content: start !important;
-}
-
 /* #logoutButton {
     margin-top: 3rem;
-} */ 
-
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;500;600;700;900&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap');
+} */
 
 
-body {
-    font-family: 'Inconsolata', monospace;
-}
+/*  */
 
-a {
-    text-decoration: none;
-}
-
-hr {
-    border: 1px solid;
-    margin: 3rem 0;
+.breadcrumb {
+    justify-content: center;
 }
 
 
