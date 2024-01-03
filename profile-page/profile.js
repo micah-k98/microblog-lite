@@ -61,3 +61,7 @@ async function logoutButtonCliked() {
     sessionStorage.removeItem("token");
     location.href = "/index.html"
 }
+
+function editButtonClicked() {
+    location.href = "edit-profile.html";
+}
