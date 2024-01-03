@@ -43,6 +43,10 @@ body.dark-mode a {
     color: #d7dbdb !important; /* Set the desired link color in dark mode */
 }  
 
+body.dark-mode #userFullName {
+    color: #d7dbdb !important; /* Set the desired link color in dark mode */
+} 
+
 body.dark-mode h2 {
     color: #d7dbdb !important; /* Set the desired link color in dark mode */
 }   
@@ -50,6 +54,10 @@ body.dark-mode h2 {
 body.dark-mode h4 {
     color: #d7dbdb !important; /* Set the desired link color in dark mode */
 }   
+ 
+body.dark-mode h5 {
+    color: #d7dbdb !important; /* Set the desired link color in dark mode */
+}  
 
 .dark-mode .card-body .bi-sun {
     color: #343655 !important;
