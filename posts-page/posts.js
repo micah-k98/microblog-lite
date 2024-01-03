@@ -19,17 +19,18 @@ document.addEventListener("DOMContentLoaded",()=>{
     postsContainer = document.getElementById("postsContainer");
     
     const sortSelect = document.getElementById("sortSelect");
+    const searchButton = document.getElementById("searchButton");
 
     // Register events
     sortSelect.addEventListener("change", getAllPosts);
-
+    searchButton.addEventListener("click", getAllPosts);
+    
     // Call these functions when the page loaded
     getAllPosts();
 })
 
 async function getAllPosts() {
-    //const userName = sessionStorage.username;
-    allPosts = await postService.getAll();
+    await filteredOrNot();
 
     // Sorting
     sortPosts();
@@ -140,6 +141,13 @@ function isItLiked(post, likePostButton) {
         }
     }
     return likeId;
+}
+
+// To test if there's a filter or not
+async function filteredOrNot() {
+    const searchInput = document.getElementById("searchInput").value;
+    if (searchInput != "") allPosts = await postService.getByUser(searchInput);
+    else allPosts = await postService.getAll();
 }
 
 // For sorting
