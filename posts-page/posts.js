@@ -21,11 +21,16 @@ document.addEventListener("DOMContentLoaded",()=>{
     const sortSelect = document.getElementById("sortSelect");
     const searchButton = document.getElementById("searchButton");
     const goBackButton = document.getElementById("goBackButton");
+    const searchInput = document.getElementById("searchInput")
 
     // Register events
     sortSelect.addEventListener("change", getAllPosts);
     searchButton.addEventListener("click", getAllPosts);
     goBackButton.addEventListener("click", goBackButtonClicked);
+    searchInput.addEventListener("keyup", (event) => {
+        event.preventDefault();
+        if (event.key == "Enter") getAllPosts();
+    })
     
     // Call these functions when the page loaded
     getAllPosts();
