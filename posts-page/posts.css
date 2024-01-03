@@ -48,8 +48,12 @@ hr {
     overflow-x: hidden;
 }
 
+.post-section .row {
+    text-align: center;
+}
+
 .post-section button {
-    color: #485785;
+    color: #485785;   
 }
 
 .search-section {
@@ -83,6 +87,7 @@ hr {
 }
 
 #searchButton,
+#goBackButton,
 #deletePost,
 #likePost {
     border: none;
