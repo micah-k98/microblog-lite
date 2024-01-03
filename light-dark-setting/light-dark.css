@@ -1,5 +1,4 @@
 #toggleButton {
-    
     top: 10px;
     right: 10px;
     font-size: 20px;
@@ -9,7 +8,6 @@
 }
 
 #toggleButtonTwo  {
-    
     top: 10px;
     right: 10px;
     font-size: 20px;
@@ -21,14 +19,9 @@
 .loginToggleButton {
     display: flex !important;
     justify-content: center !important;
-    /* position: fixed;
-    top: 10px;
-    right: 75px;
-    font-size: 20px; */
     background: none;
     border: none;
     cursor: pointer;
-    
 }
 
 body.dark-mode {
@@ -57,3 +50,16 @@ body.dark-mode h2 {
 body.dark-mode h4 {
     color: #d7dbdb !important; /* Set the desired link color in dark mode */
 }   
+
+.dark-mode .card-body .bi-sun {
+    color: #343655 !important;
+    margin-top: 15px;
+}
+
+.dark-mode .card-body a {
+    color: #484a72 !important;
+}
+
+.dark-mode .card-body p {
+    color: #484a72 !important;
+}
