@@ -6,6 +6,7 @@ let servicesBase;
 let usersService;
 let likesService;
 let postTemplate, postsContainer;
+let allPosts;
 
 document.addEventListener("DOMContentLoaded",()=>{
     // Set variables
@@ -16,22 +17,30 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     postTemplate = document.getElementById("postTemplate");
     postsContainer = document.getElementById("postsContainer");
+    
+    const sortSelect = document.getElementById("sortSelect");
+    const searchButton = document.getElementById("searchButton");
+    const goBackButton = document.getElementById("goBackButton");
+    const searchInput = document.getElementById("searchInput")
 
     // Register events
+    sortSelect.addEventListener("change", getAllPosts);
+    searchButton.addEventListener("click", getAllPosts);
+    goBackButton.addEventListener("click", goBackButtonClicked);
+    searchInput.addEventListener("keyup", (event) => {
+        event.preventDefault();
+        if (event.key == "Enter") getAllPosts();
+    })
     
-
     // Call these functions when the page loaded
     getAllPosts();
 })
 
 async function getAllPosts() {
-    //const userName = sessionStorage.username;
-    const allPosts = await postService.getAll();
+    await filteredOrNot();
 
-    // Will sort date from the most current to oldest post
-    allPosts.sort((left, right) => {
-        return new Date(right.createdAt) - new Date(left.createdAt)
-    })
+    // Sorting
+    sortPosts();
 
     postsContainer.innerText = "";
 
@@ -139,6 +148,43 @@ function isItLiked(post, likePostButton) {
         }
     }
     return likeId;
+}
+
+// To test if there's a filter or not
+async function filteredOrNot() {
+    const searchInput = document.getElementById("searchInput").value;
+    if (searchInput != "") allPosts = await postService.getByUser(searchInput);
+    else allPosts = await postService.getAll();
+}
+
+// For go-back button
+function goBackButtonClicked() {
+    document.getElementById("searchInput").value = "";
+    getAllPosts();
+}
+
+// For sorting
+function sortPosts() {
+    switch (sortSelect.value) {
+        case "0":
+        case "recent": // newest to oldest
+            allPosts.sort((left, right) => {
+                return new Date(right.createdAt) - new Date(left.createdAt)
+            })
+            break;
+        case "user": // alphabetical order
+            allPosts.sort((left, right) => {
+                return left.username < right.username ? -1 : 1
+            })
+            break;
+        case "popularity": // most to least likes
+            allPosts.sort((left, right) => {
+                return right.likes.length - left.likes.length
+            })
+            break;
+        default:
+            break;
+    }
 }
 
 // For logout
