@@ -8,16 +8,27 @@
     cursor: pointer;
 }
 
-.loginToggleButton {
-    /* display: flex !important;
-    justify-content: center !important; */
-    position: fixed;
+#toggleButtonTwo  {
+    
     top: 10px;
-    right: 75px;
+    right: 10px;
     font-size: 20px;
     background: none;
     border: none;
     cursor: pointer;
+}
+
+.loginToggleButton {
+    display: flex !important;
+    justify-content: center !important;
+    /* position: fixed;
+    top: 10px;
+    right: 75px;
+    font-size: 20px; */
+    background: none;
+    border: none;
+    cursor: pointer;
+    
 }
 
 body.dark-mode {
