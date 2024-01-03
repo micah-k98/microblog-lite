@@ -1,12 +1,13 @@
 "use strict"
 
-let postService, likesService;
+let postService, likesService, authService;
 let postTemplate, postsContainer, postSection;
 
 document.addEventListener("DOMContentLoaded", () => {
     // Set variables
     postService = new PostService();
     likesService = new LikesService();
+    authService = new AuthService();
 
     postTemplate = document.getElementById("postTemplate");
     postsContainer = document.getElementById("postsContainer");
@@ -141,4 +142,12 @@ function isItLiked(post, likePostButton) {
         }
     }
     return likeId;
+}
+
+// For logout
+async function logoutButtonCliked() {
+    // await authService.logout();
+    sessionStorage.removeItem("username");
+    sessionStorage.removeItem("token");
+    location.href = "/index.html"
 }
