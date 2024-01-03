@@ -36,4 +36,20 @@ class UsersService extends ServicesBase
 
         return fetch(`${this.apiBaseUrl}/${username}`, requestInfo).then(response => response.json());
     }
+
+
+    // PUT
+    async updateInfo(username, newData) {
+        const requestUserInfo = {
+            method: "PUT",
+            body: JSON.stringify(newData),
+            headers: {
+                "Content-type": "application/json;charset=UTF-8",
+                "Authorization": `Bearer ${this.token}`
+            }
+        }
+
+        return fetch(`${this.apiBaseUrl}/${username}`, requestUserInfo);
+    }
+
 }
