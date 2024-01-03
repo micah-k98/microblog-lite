@@ -47,6 +47,11 @@ function displayPosts(post) {
     card.getElementById("timeStamp").innerText = getDate(post);
     card.getElementById("textPost").innerText = post.text;
 
+    const editPostButton = card.getElementById("editPost");
+            editPostButton.addEventListener("click", () => {
+                
+            })
+
     const deletePostButton = card.getElementById("deletePost");
             deletePostButton.addEventListener("click", async () => {
                 // Call the api to delete the post
