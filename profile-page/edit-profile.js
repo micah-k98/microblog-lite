@@ -9,6 +9,11 @@ document.addEventListener("DOMContentLoaded", ()=> {
     authService = new AuthService();
     usersService = new UsersService();
 
+    // Check if the use is currently logged in; if not, direct them to the index page
+    const loggedIn = authService.isLoggedIn();
+    if (loggedIn == false) location.href="/index.html";
+    
+
     newUsername = document.getElementById("newUsername");
     newName = document.getElementById("newName");
     newBio = document.getElementById("newBio");

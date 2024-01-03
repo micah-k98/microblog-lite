@@ -10,6 +10,11 @@ document.addEventListener("DOMContentLoaded", ()=> {
     usersService = new UsersService();
     postService = new PostService();
 
+    // Check if the use is currently logged in; if not, direct them to the index page
+    const loggedIn = authService.isLoggedIn();
+    if (loggedIn == false) location.href="/index.html";
+    
+
     userFullName = document.getElementById("userFullName");
     userBio = document.getElementById("userBio");
     newPost = document.getElementById("newPost");

@@ -10,6 +10,11 @@ document.addEventListener("DOMContentLoaded", () => {
     likesService = new LikesService();
     authService = new AuthService();
 
+    // Check if the use is currently logged in; if not, direct them to the index page
+    const loggedIn = authService.isLoggedIn();
+    if (loggedIn == false) location.href="/index.html";
+    
+
     postTemplate = document.getElementById("postTemplate");
     postsContainer = document.getElementById("postsContainer");
 
