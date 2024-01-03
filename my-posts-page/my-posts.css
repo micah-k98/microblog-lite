@@ -57,6 +57,14 @@ hr {
     overflow-x: hidden;
 }
 
+.post-section button {
+    color: #485785;   
+}
+
+.sort-div {
+    justify-content: space-between;
+}
+
 .card {
     background-color: #f0f5fa;
     color: #414b69;
