@@ -1,191 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Posts Page</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.1.0/morph/bootstrap.min.css"
-      integrity="sha512-kyDHBwDW1zUgovtPHu1Bm62GpalnJLTMXBqcb05Ocbg9x/LFvHMvD1DMLXwEt3CnVFioeKWaMoPvt3Pq0iSC2A=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="posts.css" />
-    <link rel="stylesheet" href="/light-dark-setting/light-dark.css">
 
-    <script src="posts.js"></script>
-    <script src="/services/services-base.js"></script>
-    <script src="/services/auth-service.js"></script>
-    <script src="/services/users-service.js"></script>
-    <script src="/services/posts-service.js"></script>
-    <script src="/services/likes-service.js"></script>
-    <script src="/light-dark-setting/light-dark.js"></script>
-  </head>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Posts Page</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.1.0/morph/bootstrap.min.css"
+		integrity="sha512-kyDHBwDW1zUgovtPHu1Bm62GpalnJLTMXBqcb05Ocbg9x/LFvHMvD1DMLXwEt3CnVFioeKWaMoPvt3Pq0iSC2A=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="posts.css" />
+	<link rel="stylesheet" href="/light-dark-setting/light-dark.css">
 
-  <body>
-    <main class="container-fluid mt-5">
-      <div class="row">
-        <section class="side-bar-section col-4">
-          <div class="text-center">
-            <h2 class="fw-bolder">&lt;HACK OF ALL TRADES BLOG/&gt;</h2>
-            <div>
-                <button class="bi bi-moon-stars" id="toggleButton" onclick="toggleMode()"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-moon-stars" viewBox="0 0 16 16">
-                    <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278M4.858 1.311A7.269 7.269 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.316 7.316 0 0 0 5.205-2.162c-.337.042-.68.063-1.029.063-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286z"/>
-                    <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
-                  </svg></button>
-            </div>
-          </div>
-          <hr />
-          <a class="side-bar-home" id="home" href="/posts-page/posts.html">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="25"
-              height="25"
-              fill="currentColor"
-              class="bi bi-house-fill"
-              viewBox="0 0 16 16"
-            >
-              <path
-                d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293z"
-              />
-              <path
-                d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z"
-              />
-            </svg>
-            <h4 class="mb-0 ms-2">Home</h4>
-          </a>
-          <a
-            class="side-bar-post"
-            id="myPosts"
-            href="/my-posts-page/my-posts.html"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="25"
-              height="25"
-              fill="currentColor"
-              class="bi bi-chat-square-dots"
-              viewBox="0 0 16 16"
-            >
-              <path
-                d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"
-              />
-              <path
-                d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0"
-              />
-            </svg>
-            <h4 class="mb-0 ms-2">My Posts</h4>
-          </a>
-          <a
-            class="side-bar-like"
-            id="likedPosts"
-            href="/liked-posts-page/liked-posts.html"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="25"
-              height="25"
-              fill="currentColor"
-              class="bi bi-heart-fill"
-              viewBox="0 0 16 16"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"
-              />
-            </svg>
-            <h4 class="mb-0 ms-2">Liked Posts</h4>
-          </a>
-          <a
-            class="side-bar-profile"
-            id="profile"
-            href="/profile-page/profile.html"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="30"
-              height="30"
-              fill="currentColor"
-              class="bi bi-person"
-              viewBox="0 0 16 16"
-            >
-              <path
-                d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664z"
-              />
-            </svg>
-            <h4 class="mb-0 ms-2">My Profile</h4>
-          </a>
-          <hr />
-          <div class="text-center">
-            <button class="btn btn-dark col-4 p-2" id="logoutButton" onclick="logoutButtonCliked()">
-              Logout
-            </button>
-          </div>
-        </section>
-        <section class="post-section col-8">
-          <!-- template to use for each post -->
-          <template class="mt-5" id="postTemplate">
-            <div class="card border-light mb-3">
-              <div class="card-header fw-bold">
-                <div class="user-time">
-                  <div id="userName">anya.forger</div>
-                  <div class="opacity-50 pb-1">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-dot"
-                      viewBox="0 0 16 16"
-                    >
-                      <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3" />
-                    </svg>
-                  </div>
-                  <div id="timeStamp" class="opacity-75"></div>
-                </div>
-              </div>
-              <div class="card-body">
-                <p class="card-text" id="textPost">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Aliquam corporis nisi hic. Voluptatibus libero minus mollitia
-                  est praesentium fuga odit necessitatibus possimus,
-                  perspiciatis aut accusantium dolore modi laudantium impedit
-                  voluptatum!
-                </p>
-              </div>
-              <div class="card-footer text-body-secondary like-section">
-                <button id="likePost">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    class="bi bi-heart"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"
-                    />
-                  </svg>
-                </button>
-                <div class="pt-1" id="numOfLikes"></div>
-              </div>
-            </div>
-          </template>
-          <!-- container for all posts -->
-          <div class="mt-4" id="postsContainer"></div>
+	<script src="posts.js"></script>
+	<script src="/services/services-base.js"></script>
+	<script src="/services/auth-service.js"></script>
+	<script src="/services/users-service.js"></script>
+	<script src="/services/posts-service.js"></script>
+	<script src="/services/likes-service.js"></script>
+	<script src="/light-dark-setting/light-dark.js"></script>
+</head>
 
-          <div class="mt-5 text-center" id="errorMessage" hidden>
-            <h5>I'm sorry, there's no record found. Please try again!</h5>
-          </div>
-        </section>
-      </div>
-    </main>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+<body>
+	<main class="container-fluid mt-5">
+		<div class="row">
+			<section class="side-bar-section col-4">
+				<div class="text-center">
+					<h2 class="fw-bolder">&lt;HACK OF ALL TRADES BLOG/&gt;</h2>
+					<div>
+						<button class="bi bi-moon-stars" id="toggleButton" onclick="toggleMode()"><svg
+								xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+								class="bi bi-moon-stars" viewBox="0 0 16 16">
+								<path
+									d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278M4.858 1.311A7.269 7.269 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.316 7.316 0 0 0 5.205-2.162c-.337.042-.68.063-1.029.063-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286z" />
+								<path
+									d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z" />
+							</svg></button>
+					</div>
+				</div>
+				<hr />
+				<a class="side-bar-home" id="home" href="/posts-page/posts.html">
+					<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+						class="bi bi-house-fill" viewBox="0 0 16 16">
+						<path
+							d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293z" />
+						<path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z" />
+					</svg>
+					<h4 class="mb-0 ms-2">Home</h4>
+				</a>
+				<a class="side-bar-post" id="myPosts" href="/my-posts-page/my-posts.html">
+					<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+						class="bi bi-chat-square-dots" viewBox="0 0 16 16">
+						<path
+							d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
+						<path
+							d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0" />
+					</svg>
+					<h4 class="mb-0 ms-2">My Posts</h4>
+				</a>
+				<a class="side-bar-like" id="likedPosts" href="/liked-posts-page/liked-posts.html">
+					<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+						class="bi bi-heart-fill" viewBox="0 0 16 16">
+						<path fill-rule="evenodd"
+							d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+					</svg>
+					<h4 class="mb-0 ms-2">Liked Posts</h4>
+				</a>
+				<a class="side-bar-profile" id="profile" href="/profile-page/profile.html">
+					<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+						class="bi bi-person" viewBox="0 0 16 16">
+						<path
+							d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664z" />
+					</svg>
+					<h4 class="mb-0 ms-2">My Profile</h4>
+				</a>
+				<hr />
+				<div class="text-center">
+					<button class="btn btn-dark col-4 p-2" id="logoutButton" onclick="logoutButtonCliked()">
+						Logout
+					</button>
+				</div>
+			</section>
+			
+			<section class="post-section col-8">
+				<div class="row">
+					<div class="col pe-0">
+						<button id="goBackButton">
+							<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+								class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+								<path fill-rule="evenodd"
+									d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
+							</svg>
+						</button>
+					</div>
+					<div class="search-section col-7 ps-0">
+						<div class="input-group rounded">
+							<input type="search" id="searchInput" class="form-control rounded ps-3 pt-2 pb-2"
+								placeholder="Search username" aria-label="Search" aria-describedby="search-addon" />
+							<span class="input-group-text border-0 pt-2 pe-1 pb-2 ps-1" id="search-addon">
+								<button id="searchButton">
+									<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+										class="bi bi-search ms-3 me-3" viewBox="0 0 16 16">
+										<path
+											d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+									</svg>
+								</button>
+								<!-- <i class="fas fa-search"></i> -->
+							</span>
+						</div>
+					</div>
+					<div class="form-group col-4">
+						<select name="sortSelect" id="sortSelect" class="form-select pt-2 pb-2">
+							<option value="0">Sort By</option>
+							<option selected value="recent">Most Recent</option>
+							<option value="user">Username</option>
+							<option value="popularity">Popularity</option>
+						</select>
+					</div>
+				</div>
+				<!-- template to use for each post -->
+				<template class="mt-5" id="postTemplate">
+					<div class="card border-light mb-3">
+						<div class="card-header fw-bold">
+							<div class="user-time">
+								<div id="userName">anya.forger</div>
+								<div class="opacity-50 pb-1">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+										class="bi bi-dot" viewBox="0 0 16 16">
+										<path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3" />
+									</svg>
+								</div>
+								<div id="timeStamp" class="opacity-75"></div>
+							</div>
+						</div>
+						<div class="card-body">
+							<p class="card-text" id="textPost">
+								Lorem ipsum dolor sit amet consectetur adipisicing elit.
+								Aliquam corporis nisi hic. Voluptatibus libero minus mollitia
+								est praesentium fuga odit necessitatibus possimus,
+								perspiciatis aut accusantium dolore modi laudantium impedit
+								voluptatum!
+							</p>
+						</div>
+						<div class="card-footer text-body-secondary like-section">
+							<button id="likePost">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+									class="bi bi-heart" viewBox="0 0 16 16">
+									<path
+										d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
+								</svg>
+							</button>
+							<div class="pt-1" id="numOfLikes"></div>
+						</div>
+					</div>
+				</template>
+				<!-- container for all posts -->
+				<div class="mt-4" id="postsContainer"></div>
+
+				<div class="mt-5 text-center" id="errorMessage" hidden>
+					<h5>I'm sorry, there's no record found. Please try again!</h5>
+				</div>
+			</section>
+		</div>
+	</main>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+		crossorigin="anonymous"></script>
+</body>
+
 </html>
