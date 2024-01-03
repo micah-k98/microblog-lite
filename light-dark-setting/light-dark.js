@@ -1,9 +1,24 @@
+document.addEventListener("DOMContentLoaded", () => {
+  if(sessionStorage.darkmode === "true")
+  {
+    toggleMode()
+  }
+})
+
 function toggleMode() {
     const body = document.body;
     const toggleButton = document.getElementById('toggleButton');
 
     // Toggle dark mode class on body
     body.classList.toggle('dark-mode');
+    if(body.classList.contains('dark-mode'))
+    {
+      sessionStorage.darkmode = true;
+    }
+    else
+    {
+      sessionStorage.darkmode = false;
+    }
 
     // Change the icon based on the current mode
     const currentMode = body.classList.contains('dark-mode') 

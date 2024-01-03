@@ -57,8 +57,8 @@ function closeMessage() {
 
 // For logout
 async function logoutButtonCliked() {
-    // await authService.logout();
-    sessionStorage.removeItem("username");
-    sessionStorage.removeItem("token");
-    location.href = "/index.html"
+    await authService.logout();
+    // sessionStorage.removeItem("username");
+    // sessionStorage.removeItem("token");
+    // location.href = "/index.html"
 }
