@@ -63,3 +63,7 @@ body.dark-mode h4 {
 .dark-mode .card-body p {
     color: #484a72 !important;
 }
+
+body.dark-mode #goBackButton {
+    color: #d7dbdb !important;
+}
