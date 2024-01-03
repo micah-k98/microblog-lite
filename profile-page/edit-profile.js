@@ -43,6 +43,15 @@ async function updateButtonClicked(event) {
     }
     
     const updated = await usersService.updateInfo(userName, newData);
+
+    if (updated.status >= 200 && updated.status < 300) {
+        updateButton.setAttribute("data-bs-toggle", "modal");
+        updateButton.setAttribute("data-bs-target", "#updatedMessage");
+    }
+}
+
+function closeMessage() {
+    location.href = "profile.html";
 }
 
 
