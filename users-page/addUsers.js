@@ -64,6 +64,7 @@ async function userLogin(event) {
         // Optionally, you can clear the input fields for the user to retry
         document.getElementById("userNameLogin").value = "";
         document.getElementById("passwordLogin").value = "";
+        document.getElementById("userNameLogin").focus();
     }
 
 }
