@@ -3,10 +3,10 @@
 class UsersService extends ServicesBase 
 {
     apiBaseUrl = "";
-    token = sessionStorage.token;
 
     // This is needed combine the base URL (from extends ServicesBase) and the necessary resource
-    constructor() {
+    constructor() 
+    {
         super();
         this.apiBaseUrl = this.baseUrl + "api/users";
     }
@@ -26,30 +26,28 @@ class UsersService extends ServicesBase
 
 
     // GET
-    async getCurrent(username) {
+    async getCurrent(loginData) {
         const requestInfo = {
             headers : {
-                "Authorization": `Bearer ${this.token}`
+                "Authorization": `Bearer ${loginData.token}`
             }
         }
 
-
-        return fetch(`${this.apiBaseUrl}/${username}`, requestInfo).then(response => response.json());
+        return fetch(`${this.apiBaseUrl}/${loginData.username}`, requestInfo).then(response => response.json());
     }
 
 
     // PUT
-    async updateInfo(username, newData) {
+    async updateInfo(loginData, newData) {
         const requestUserInfo = {
             method: "PUT",
             body: JSON.stringify(newData),
             headers: {
                 "Content-type": "application/json;charset=UTF-8",
-                "Authorization": `Bearer ${this.token}`
+                "Authorization": `Bearer ${loginData.token}`
             }
         }
 
-        return fetch(`${this.apiBaseUrl}/${username}`, requestUserInfo);
+        return fetch(`${this.apiBaseUrl}/${loginData.username}`, requestUserInfo);
     }
-
 }
