@@ -18,6 +18,10 @@ hr {
     padding: 3rem;
 }
 
+#allLinks {
+    margin-left: 5rem;
+}
+
 .side-bar-name,
 .side-bar-home,
 .side-bar-post,
@@ -50,6 +54,7 @@ hr {
 
 .post-section .row {
     align-items: center;
+    justify-content: space-evenly;
 }
 
 .post-section button {

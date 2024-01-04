@@ -21,6 +21,10 @@ hr {
     padding: 3rem;
 }
 
+#allLinks {
+    margin-left: 5rem;
+}
+
 .side-bar-name,
 .side-bar-home,
 .side-bar-post,
@@ -63,6 +67,7 @@ hr {
 
 .sort-div {
     justify-content: space-between;
+    align-items: center;
 }
 
 .card {

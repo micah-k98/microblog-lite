@@ -71,6 +71,15 @@ function displayPosts(post) {
     card.getElementById("userName").innerText = post.username;
     card.getElementById("timeStamp").innerText = getDate(post);
     card.getElementById("textPost").innerText = post.text;
+
+    if (loginData.username == post.username) {
+        const deletePostButton = card.getElementById("deletePost");
+                deletePostButton.hidden = false;
+                deletePostButton.addEventListener("click", async () => {
+                    // Call the api to delete the post
+                    const deleted = await postService.delete(post._id, loginData);
+                })
+    }
     
     const likePostButton = card.getElementById("likePost");
             likePostButton.addEventListener("click", async () => {
@@ -201,6 +210,12 @@ async function logoutButtonCliked() {
     await authService.logout();
     // localStorage.removeItem("login-data");
     // location.href = "/index.html"
+}
+
+// For modal delete message
+function closeMessage() {
+    // window.location.reload();
+    getAllPosts(); 
 }
 
 // For modal sign-in message
