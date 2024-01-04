@@ -1,7 +1,7 @@
 "use strict"
 
 let authService, usersService;
-let userName, userData;
+let loginData, userData;
 let newUsername, newName, newBio, newPassword, updateButton, myModal;
 
 document.addEventListener("DOMContentLoaded", ()=> {
@@ -11,7 +11,10 @@ document.addEventListener("DOMContentLoaded", ()=> {
 
     // Check if the use is currently logged in; if not, direct them to the index page
     const loggedIn = authService.isLoggedIn();
-    if (loggedIn == false) location.href="/index.html";
+    if (loggedIn == false) {
+        const myModal = bootstrap.Modal.getOrCreateInstance('#signInFirst');
+        myModal.show();
+    }
     
 
     newUsername = document.getElementById("newUsername");
@@ -30,8 +33,8 @@ document.addEventListener("DOMContentLoaded", ()=> {
 })
 
 async function loadCurrentData() {
-    userName = sessionStorage.username;
-    userData = await usersService.getCurrent(userName);
+    loginData = await authService.getLoginData();
+    userData = await usersService.getCurrent(loginData);
 
     newUsername.value = userData.username;
     newName.value = userData.fullName;
@@ -48,7 +51,7 @@ async function updateButtonClicked(event) {
         password: newPassword.value
     }
     
-    const updated = await usersService.updateInfo(userName, newData);
+    const updated = await usersService.updateInfo(loginData, newData);
 
     if (updated.status >= 200 && updated.status < 300) {
         myModal.show();
@@ -63,7 +66,11 @@ function closeMessage() {
 // For logout
 async function logoutButtonCliked() {
     await authService.logout();
-    // sessionStorage.removeItem("username");
-    // sessionStorage.removeItem("token");
+    // localStorage.removeItem("login-data");
     // location.href = "/index.html"
+}
+
+// For modal sign-in message
+function closeModal() {
+    location.href = "/index.html";
 }

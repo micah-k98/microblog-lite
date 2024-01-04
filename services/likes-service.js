@@ -3,22 +3,23 @@
 class LikesService extends ServicesBase
 {
     apiBaseUrl = "";
-    token = sessionStorage.token;
 
+    // This is needed combine the base URL (from extends ServicesBase) and the necessary resource
     constructor()
     {
         super();
         this.apiBaseUrl = this.baseUrl + "api/likes"
     }
 
+    
     // POST
-    async liked(id) {
+    async liked(id, loginData) {
         const requestInfo = {
             method: "POST",
             body: JSON.stringify(id),
             headers: {
                 "Content-type": "application/json;charset=UTF-8",
-                "Authorization": `Bearer ${this.token}`
+                "Authorization": `Bearer ${loginData.token}`
             }
         }
         
@@ -26,11 +27,11 @@ class LikesService extends ServicesBase
     }
 
     // DELETE
-    async unliked(id) {
+    async unliked(id, loginData) {
         const requestInfo = {
             method: "DELETE",
             headers: {
-                "Authorization": `Bearer ${this.token}`
+                "Authorization": `Bearer ${loginData.token}`
             }
         }
 

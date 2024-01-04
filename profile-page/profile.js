@@ -1,7 +1,7 @@
 "use strict"
 
 let authService, usersService, postService;
-let userData;
+let loginData, userData;
 let userFullName, userBio, newPost;
 
 document.addEventListener("DOMContentLoaded", ()=> {
@@ -12,8 +12,11 @@ document.addEventListener("DOMContentLoaded", ()=> {
 
     // Check if the use is currently logged in; if not, direct them to the index page
     const loggedIn = authService.isLoggedIn();
-    if (loggedIn == false) location.href="/index.html";
-    
+    if (loggedIn == false) {
+        const myModal = bootstrap.Modal.getOrCreateInstance('#signInFirst');
+        myModal.show();
+    }
+
 
     userFullName = document.getElementById("userFullName");
     userBio = document.getElementById("userBio");
@@ -28,21 +31,9 @@ document.addEventListener("DOMContentLoaded", ()=> {
     displayUserInfo();
 })
 
-// function getCurrentUserId() {
-//     // The following is needed to get the query string of the current page
-//     // It will then check if it has the word "username"
-//     const urlParam = new URLSearchParams(location.search);
-//     let username = -1;
-//     if (urlParam.has("username") == true) {
-//         username = urlParam.get("username");
-
-//         displayUserInfo(username);
-//     }
-// }
-
 async function displayUserInfo() {
-    const userName = sessionStorage.username;
-    userData = await usersService.getCurrent(userName);
+    loginData = await authService.getLoginData();
+    userData = await usersService.getCurrent(loginData);
     
     userFullName.innerText = userData.fullName;
     if (userData.bio == null || userData.bio == "") {
@@ -59,7 +50,7 @@ async function saveNewPost() {
         text: newPost.value
     }
 
-    const posted = await postService.add(postInfo);
+    const posted = await postService.add(postInfo, loginData);
 
     // Direct it to my-posts page
     location.href = `/my-posts-page/my-posts.html`;
@@ -68,11 +59,15 @@ async function saveNewPost() {
 // For logout
 async function logoutButtonCliked() {
     await authService.logout();
-    // sessionStorage.removeItem("username");
-    // sessionStorage.removeItem("token");
+    // localStorage.removeItem("login-data");
     // location.href = "/index.html"
 }
 
 function editButtonClicked() {
     location.href = "edit-profile.html";
+}
+
+// For modal sign-in message
+function closeModal() {
+    location.href = "/index.html";
 }
