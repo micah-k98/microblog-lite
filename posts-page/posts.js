@@ -214,7 +214,8 @@ async function logoutButtonCliked() {
 
 // For modal delete message
 function closeMessage() {
-    window.location.reload();
+    // window.location.reload();
+    getAllPosts(); 
 }
 
 // For modal sign-in message
