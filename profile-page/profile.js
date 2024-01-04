@@ -2,7 +2,7 @@
 
 let authService, usersService, postService;
 let loginData, userData;
-let userFullName, userBio, newPost, currentPostId, counter;
+let userFullName, userBio, newPost, currentPostId, counter, myModal;
 
 document.addEventListener("DOMContentLoaded", ()=> {
     // Set variables
@@ -58,34 +58,33 @@ async function displayUserInfo() {
     }
 }
 
-async function saveNewPost() {
+async function saveNewPost(event) {
+    event.preventDefault();
     const postInfo = {
         text: newPost.value
     }
 
-    if (counter = 0) {
+    if (counter == 0) {
         const posted = await postService.add(postInfo, loginData);
+        closeMessage();
     }
     else {
         const updated = await postService.updatePost(currentPostId, loginData, postInfo);
         if (updated.status >= 200 && updated.status < 300) {
             document.getElementById("updateModal").innerHTML = `<div class="modal fade" id="updated" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5">Post has been successfully updated!</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeMessage()"></button>
-                    </div>
-                </div>
-            </div>
-        </div>`
-            const myModal = bootstrap.Modal.getOrCreateInstance('#updated');
-            myModal.show();
+                                                                    <div class="modal-dialog">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h1 class="modal-title fs-5">Post has been successfully updated!</h1>
+                                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeMessage()"></button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>`
+            myModal = new bootstrap.Modal('#updated');
+            // myModal.show();
         }
     }
-
-    // Direct it to my-posts page
-    location.href = `/my-posts-page/my-posts.html`;
 }
 
 // For logout
@@ -106,5 +105,6 @@ function closeModal() {
 
 // For modal update message
 function closeMessage() {
+    // Direct it to my-posts page
     location.href = "/my-posts-page/my-posts.html"
 }
