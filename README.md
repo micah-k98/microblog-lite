@@ -40,7 +40,7 @@ The "My Posts" page is a personalized hub where users can manage their own contr
 The "Liked Posts" page provides users with a curated collection of posts they have liked, offering seamless navigation and filters like "Most Recent" and "Popularity" for an enhanced experience. This dedicated space allows users to revisit and engage with their favorite content, tailored to their preferences.
 
 ### My Profile
-![My profile page](Imgs&vids/CBProfile.PNG)
+![My profile page](Imgs&vids/CBProfileUpdate.PNG)
 
 
 The "My Profile" page offers users seamless control over personal details, enabling easy editing of username, full name, bio, and password for a personalized and secure experience.
