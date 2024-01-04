@@ -73,9 +73,6 @@
                     <div class="text-center">
                         <button class="btn btn-dark col-4 p-2" id="logoutButton" onclick="logoutButtonCliked()">Logout</button>
                     </div> 
-                    <!-- <div>
-                        <button>Dark Mode</button>(top right)
-                    </div> -->
                 </section>
         
                 <section class="post-section col-8 text-center">
@@ -101,6 +98,18 @@
                         <button class="btn btn-primary col-3 p-2 mt-3" id="postItButton">Post It!</button>
                     </div>
                 </section>
+            </div>
+
+            <!-- modal for asking the user to sign in first -->
+            <div class="modal fade" id="signInFirst" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5">Please sign-in first, thank you!</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeModal()"></button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </main>
         

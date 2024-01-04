@@ -3,24 +3,23 @@
 class PostService extends ServicesBase
 {
     apiBaseUrl = "";
-    token = sessionStorage.token;
 
     // This is needed combine the base URL (from extends ServicesBase) and the necessary resource
     constructor()
-    {
+{
         super();
         this.apiBaseUrl = this.baseUrl + "api/posts"
     }
 
     
     // POST
-    async add(postInfo) {
+    async add(postInfo, loginData) {
         const requestInfo = {
             method: "POST",
             body: JSON.stringify(postInfo),
             headers: {
                 "Content-type": "application/json;charset=UTF-8",
-                "Authorization": `Bearer ${this.token}`
+                "Authorization": `Bearer ${loginData.token}`
             }
         }
 
@@ -28,21 +27,21 @@ class PostService extends ServicesBase
     }
 
     // GET
-    async getByUser(userName) {
+    async getByUser(loginData) {
         const requestInfo = {
             headers: {
-                "Authorization": `Bearer ${this.token}`
+                "Authorization": `Bearer ${loginData.token}`
             }
         }
 
-        return fetch(`${this.apiBaseUrl}?limit=100&username=${userName}`, requestInfo).then(response => response.json())
+        return fetch(`${this.apiBaseUrl}?limit=100&username=${loginData.username}`, requestInfo).then(response => response.json())
     }
 
     // GET
-    async getAll() {
+    async getAll(loginData) {
         const requestInfo = {
             headers: {
-                "Authorization": `Bearer ${this.token}`
+                "Authorization": `Bearer ${loginData.token}`
             }
         }
 
@@ -50,11 +49,11 @@ class PostService extends ServicesBase
     }
 
     // DELETE
-    async delete(id) {
+    async delete(id, loginData) {
         const requestInfo = {
             method: "DELETE",
             headers: {
-                "Authorization": `Bearer ${this.token}`
+                "Authorization": `Bearer ${loginData.token}`
             }
         }
 
