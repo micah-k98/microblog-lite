@@ -79,6 +79,7 @@ hr {
 
 .card .row {
     justify-content: space-between;
+    align-items: center;
 }
 
 .user-time {
@@ -93,6 +94,7 @@ hr {
 
 #searchButton,
 #goBackButton,
+#editPost,
 #deletePost,
 #likePost {
     border: none;
