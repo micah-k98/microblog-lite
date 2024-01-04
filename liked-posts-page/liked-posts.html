@@ -15,6 +15,7 @@
         <script src="/services/likes-service.js"></script>
         <script src="/light-dark-setting/light-dark.js"></script>
     </head>
+    
     <body>
         <main class="container-fluid mt-5">
             <div class="row">
@@ -128,6 +129,18 @@
                         <h5>I'm sorry, there's no record found. Please try again!</h5>
                     </div>
                 </section>
+            </div>
+
+            <!-- modal for asking the user to sign in first -->
+            <div class="modal fade" id="signInFirst" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5">Please sign-in first, thank you!</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeModal()"></button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </main>
 
