@@ -57,8 +57,8 @@ function displayPosts(post) {
     card.getElementById("textPost").innerText = post.text;
 
     const editPostButton = card.getElementById("editPost");
-            editPostButton.addEventListener("click", () => {
-                
+            editPostButton.addEventListener("click", async () => {
+                location.href = `/profile-page/profile.html?id=${post._id}`
             })
 
     const deletePostButton = card.getElementById("deletePost");

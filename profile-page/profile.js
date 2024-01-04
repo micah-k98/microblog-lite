@@ -2,7 +2,7 @@
 
 let authService, usersService, postService;
 let loginData, userData;
-let userFullName, userBio, newPost;
+let userFullName, userBio, newPost, currentPostId, counter;
 
 document.addEventListener("DOMContentLoaded", ()=> {
     // Set variables
@@ -43,6 +43,19 @@ async function displayUserInfo() {
             </svg>`)
     }
     else userBio.innerText = userData.bio;
+
+    // The following is needed to get the query string of the current page
+    // It will then check if it has the word "_id"
+    const urlParam = new URLSearchParams(location.search);
+    currentPostId = -1;
+    counter = 0;
+    if (urlParam.has("id") == true) {
+        currentPostId = urlParam.get("id");
+
+        const currentPost = await postService.getOne(currentPostId, loginData);
+        newPost.value = currentPost.text;
+        counter++;
+    }
 }
 
 async function saveNewPost() {
@@ -50,7 +63,26 @@ async function saveNewPost() {
         text: newPost.value
     }
 
-    const posted = await postService.add(postInfo, loginData);
+    if (counter = 0) {
+        const posted = await postService.add(postInfo, loginData);
+    }
+    else {
+        const updated = await postService.updatePost(currentPostId, loginData, postInfo);
+        if (updated.status >= 200 && updated.status < 300) {
+            document.getElementById("updateModal").innerHTML = `<div class="modal fade" id="updated" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5">Post has been successfully updated!</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeMessage()"></button>
+                    </div>
+                </div>
+            </div>
+        </div>`
+            const myModal = bootstrap.Modal.getOrCreateInstance('#updated');
+            myModal.show();
+        }
+    }
 
     // Direct it to my-posts page
     location.href = `/my-posts-page/my-posts.html`;
@@ -70,4 +102,9 @@ function editButtonClicked() {
 // For modal sign-in message
 function closeModal() {
     location.href = "/index.html";
+}
+
+// For modal update message
+function closeMessage() {
+    location.href = "/my-posts-page/my-posts.html"
 }
