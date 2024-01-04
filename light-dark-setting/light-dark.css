@@ -29,6 +29,10 @@ body.dark-mode {
     color: #d7dbdb !important;
 }
 
+body {
+    transition: background-color 0.8s, color 0.8s;
+}
+
 .bi-sun {
     color: #d7dbdb !important;
     margin-top: 15px;
