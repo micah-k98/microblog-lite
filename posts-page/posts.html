@@ -117,41 +117,42 @@
 						</div>
 					</div>
 					<!-- template to use for each post -->
-					<template class="mt-5" id="postTemplate">
-						<div class="card border-light mb-3">
-							<div class="card-header fw-bold">
-								<div class="user-time">
-									<div id="userName">anya.forger</div>
-									<div class="opacity-50 pb-1">
-										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-											class="bi bi-dot" viewBox="0 0 16 16">
-											<path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3" />
-										</svg>
-									</div>
-									<div id="timeStamp" class="opacity-75"></div>
-								</div>
-							</div>
-							<div class="card-body">
-								<p class="card-text" id="textPost">
-									Lorem ipsum dolor sit amet consectetur adipisicing elit.
-									Aliquam corporis nisi hic. Voluptatibus libero minus mollitia
-									est praesentium fuga odit necessitatibus possimus,
-									perspiciatis aut accusantium dolore modi laudantium impedit
-									voluptatum!
-								</p>
-							</div>
-							<div class="card-footer text-body-secondary like-section">
-								<button id="likePost">
-									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-										class="bi bi-heart" viewBox="0 0 16 16">
-										<path
-											d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
-									</svg>
-								</button>
-								<div class="pt-1" id="numOfLikes"></div>
-							</div>
-						</div>
-					</template>
+                    <template class="mt-5" id="postTemplate">
+                        <div class="card border-light mb-3">
+                            <div class="card-header fw-bold">
+                                <div class="row">
+                                    <div class="user-time col-11">
+                                        <div id="userName">anya.forger</div>
+                                        <div class="opacity-50 pb-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dot" viewBox="0 0 16 16">
+                                                <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/>
+                                            </svg>
+                                        </div>
+                                        <div id="timeStamp" class="opacity-75"></div>
+                                    </div>
+                                    <div class="col-1 text-center">
+                                        <button id="deletePost" type="button" data-bs-toggle="modal" data-bs-target="#deletedMessage" hidden>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+                                                <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text" id="textPost">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam corporis nisi hic. Voluptatibus libero minus mollitia est praesentium fuga odit necessitatibus possimus, perspiciatis aut accusantium dolore modi laudantium impedit voluptatum!</p>
+                            </div>
+                            <div class="card-footer text-body-secondary like-section">
+                                <button id="likePost">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                                    </svg>
+                                </button>
+                                <div class="pt-1" id="numOfLikes"></div>
+                            </div>
+                        </div>
+                    </template>
 					<!-- container for all posts -->
 					<div class="mt-4" id="postsContainer"></div>
 
@@ -160,6 +161,18 @@
 					</div>
 				</section>
 			</div>
+
+			<!-- modal for whenever the user deletes a post -->
+            <div class="modal fade" id="deletedMessage" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5">Successfully deleted the post!</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeMessage()"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 			<!-- modal for asking the user to sign in first -->
 			<div class="modal fade" id="signInFirst" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">

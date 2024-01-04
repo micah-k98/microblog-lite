@@ -100,10 +100,6 @@ function displayPosts(post) {
     postsContainer.appendChild(card);
 }
 
-function closeMessage() {
-    window.location.reload();
-}
-
 // For the timestamp
 function getDate(post) {
 
@@ -177,6 +173,12 @@ async function logoutButtonCliked() {
     await authService.logout();
     // localStorage.removeItem("login-data");
     // location.href = "/index.html"
+}
+
+// For modal delete message
+function closeMessage() {
+    // window.location.reload();
+    getAllPosts();
 }
 
 // For modal sign-in message
