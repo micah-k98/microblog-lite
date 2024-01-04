@@ -1,0 +1,36 @@
+
+
+/* Hide the sidebar on smaller screens by default */
+.side-bar-section {
+    display: block;
+}
+  
+  /* Media query to hide/show the sidebar based on screen size */
+@media (max-width: 767px) {
+    .hide-sidebar {
+      display: none;
+    }
+/*   
+    .side-bar-section.show-sidebar {
+      display: block;
+    } */
+
+    #sidebarToggle {
+        /* position: fixed; */
+        top: 5px;
+        left: 0;
+        transform: translateY(-50%);
+    }
+
+    #container-row {
+        flex-direction: column;
+    }
+}
+
+.bi-caret-down-square-fill{
+    margin-top: 15px;
+}
+
+.bi-three-dots {
+    margin-top: 15px;
+}
