@@ -54,6 +54,11 @@ async function updateButtonClicked(event) {
     const updated = await usersService.updateInfo(loginData, newData);
 
     if (updated.status >= 200 && updated.status < 300) {
+        const userLogin = {
+            "username": newData.username,
+            "password": newData.password
+        }
+        await usersService.changeLoginData(userLogin);
         myModal.show();
     }
 }
