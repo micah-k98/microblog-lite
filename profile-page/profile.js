@@ -1,7 +1,7 @@
 "use strict"
 
 let authService, usersService, postService;
-let userData;
+let loginData, userData;
 let userFullName, userBio, newPost;
 
 document.addEventListener("DOMContentLoaded", ()=> {
@@ -9,6 +9,14 @@ document.addEventListener("DOMContentLoaded", ()=> {
     authService = new AuthService();
     usersService = new UsersService();
     postService = new PostService();
+
+    // Check if the use is currently logged in; if not, direct them to the index page
+    const loggedIn = authService.isLoggedIn();
+    if (loggedIn == false) {
+        const myModal = bootstrap.Modal.getOrCreateInstance('#signInFirst');
+        myModal.show();
+    }
+
 
     userFullName = document.getElementById("userFullName");
     userBio = document.getElementById("userBio");
@@ -23,24 +31,18 @@ document.addEventListener("DOMContentLoaded", ()=> {
     displayUserInfo();
 })
 
-// function getCurrentUserId() {
-//     // The following is needed to get the query string of the current page
-//     // It will then check if it has the word "username"
-//     const urlParam = new URLSearchParams(location.search);
-//     let username = -1;
-//     if (urlParam.has("username") == true) {
-//         username = urlParam.get("username");
-
-//         displayUserInfo(username);
-//     }
-// }
-
 async function displayUserInfo() {
-    const userName = sessionStorage.username;
-    userData = await usersService.getCurrent(userName);
+    loginData = await authService.getLoginData();
+    userData = await usersService.getCurrent(loginData);
     
     userFullName.innerText = userData.fullName;
-    userBio.innerText = userData.bio;
+    if (userData.bio == null || userData.bio == "") {
+        userBio.innerText = "Spill the tea on your awesome self!"
+        userBio.insertAdjacentHTML("afterend", `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1"/>
+            </svg>`)
+    }
+    else userBio.innerText = userData.bio;
 }
 
 async function saveNewPost() {
@@ -48,16 +50,24 @@ async function saveNewPost() {
         text: newPost.value
     }
 
-    const posted = await postService.add(postInfo);
+    const posted = await postService.add(postInfo, loginData);
 
     // Direct it to my-posts page
-    location.href = `/my-posts-page/my-posts.html?username=${userData.username}`
+    location.href = `/my-posts-page/my-posts.html`;
 }
 
 // For logout
 async function logoutButtonCliked() {
-    // await authService.logout();
-    sessionStorage.removeItem("username");
-    sessionStorage.removeItem("token");
-    location.href = "/index.html"
+    await authService.logout();
+    // localStorage.removeItem("login-data");
+    // location.href = "/index.html"
+}
+
+function editButtonClicked() {
+    location.href = "edit-profile.html";
+}
+
+// For modal sign-in message
+function closeModal() {
+    location.href = "/index.html";
 }

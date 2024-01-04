@@ -2,6 +2,7 @@
 
 let postService, likesService, authService;
 let postTemplate, postsContainer, postSection;
+let loginData, allPosts;
 
 document.addEventListener("DOMContentLoaded", () => {
     // Set variables
@@ -9,24 +10,32 @@ document.addEventListener("DOMContentLoaded", () => {
     likesService = new LikesService();
     authService = new AuthService();
 
+    // Check if the use is currently logged in; if not, direct them to the index page
+    const loggedIn = authService.isLoggedIn();
+    if (loggedIn == false) {
+        const myModal = bootstrap.Modal.getOrCreateInstance('#signInFirst');
+        myModal.show();
+    }
+
+
     postTemplate = document.getElementById("postTemplate");
     postsContainer = document.getElementById("postsContainer");
 
+    const sortSelect = document.getElementById("sortSelect");
+
     // Register events
-    
+    sortSelect.addEventListener("change", getAllPosts);
 
     // Call these functions when the page loaded
     getAllPosts();
 })
 
 async function getAllPosts() {
-    const userName = sessionStorage.username;
-    const allPosts = await postService.getByUser(userName);
+    loginData = await authService.getLoginData();
+    allPosts = await postService.getByUser(loginData);
 
-    // Will sort date from the most current to oldest post
-    allPosts.sort((left, right) => {
-        return new Date(right.createdAt) - new Date(left.createdAt)
-    })
+    // Sorting
+    sortPosts();
 
     postsContainer.innerText = "";
 
@@ -55,7 +64,7 @@ function displayPosts(post) {
     const deletePostButton = card.getElementById("deletePost");
             deletePostButton.addEventListener("click", async () => {
                 // Call the api to delete the post
-                const deleted = await postService.delete(post._id);
+                const deleted = await postService.delete(post._id, loginData);
             })
     
     const likePostButton = card.getElementById("likePost");
@@ -65,7 +74,7 @@ function displayPosts(post) {
                     const data = {
                         "postId": post._id
                     }
-                    const liked = await likesService.liked(data);
+                    const liked = await likesService.liked(data, loginData);
 
                     // Bootstrap icon: color-filled heart
                     likePostButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
@@ -75,7 +84,7 @@ function displayPosts(post) {
                         getAllPosts();
                 }
                 else {
-                    const liked = await likesService.unliked(likeId);
+                    const liked = await likesService.unliked(likeId, loginData);
 
                     // Bootstrap icon: non-color-filled heart
                     likePostButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
@@ -134,7 +143,7 @@ function isItLiked(post, likePostButton) {
     let likeId;
 
     for (let i = 0; i < post.likes.length; i++) {
-        if (post.likes[i].username == sessionStorage.username) {
+        if (post.likes[i].username == loginData.username) {
             likePostButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/> </svg>`
                 likeId = post.likes[i]._id;
@@ -149,10 +158,33 @@ function isItLiked(post, likePostButton) {
     return likeId;
 }
 
+// For sorting
+function sortPosts() {
+    switch (sortSelect.value) {
+        case "0":
+        case "recent": // newest to oldest
+            allPosts.sort((left, right) => {
+                return new Date(right.createdAt) - new Date(left.createdAt)
+            })
+            break;
+        case "popularity": // most to least likes
+            allPosts.sort((left, right) => {
+                return right.likes.length - left.likes.length
+            })
+            break;
+        default:
+            break;
+    }
+}
+
 // For logout
 async function logoutButtonCliked() {
-    // await authService.logout();
-    sessionStorage.removeItem("username");
-    sessionStorage.removeItem("token");
-    location.href = "/index.html"
+    await authService.logout();
+    // localStorage.removeItem("login-data");
+    // location.href = "/index.html"
+}
+
+// For modal sign-in message
+function closeModal() {
+    location.href = "/index.html";
 }
