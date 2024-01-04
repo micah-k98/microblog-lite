@@ -82,7 +82,7 @@ async function saveNewPost(event) {
                                                                     </div>
                                                                 </div>`
             myModal = new bootstrap.Modal('#updated');
-            // myModal.show();
+            myModal.show();
         }
     }
 }
