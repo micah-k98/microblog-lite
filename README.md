@@ -1,5 +1,5 @@
 # microblog-lite: ChatterBox
-Capstone 3
+### Capstone 3
 
 Chatterbox is a dynamic blog platform where users can engage in expressive conversations and showcase their personalities through written content. With its interactive interface, Chatterbox provides a vibrant space for individuals to not only share their thoughts but also visually express themselves, fostering a diverse and lively online community.
 
@@ -7,7 +7,7 @@ Chatterbox is a dynamic blog platform where users can engage in expressive conve
 
 ## Description
 
-This website was created using: HTML, CSS, and JavaScript. 
+#### This website was created using: HTML, CSS, and JavaScript. 
 
 ![Chatter-Box](Imgs&vids/CB1.PNG)
 
