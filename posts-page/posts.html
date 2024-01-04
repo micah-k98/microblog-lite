@@ -46,41 +46,43 @@
 					</div>
                     <div id="side-navigation" class="hide-sidebar">
                         <hr />
-                        <a class="side-bar-home" id="home" href="/posts-page/posts.html">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                                class="bi bi-house-fill" viewBox="0 0 16 16">
-                                <path
-                                    d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293z" />
-                                <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z" />
-                            </svg>
-                            <h4 class="mb-0 ms-2">Home</h4>
-                        </a>
-                        <a class="side-bar-post" id="myPosts" href="/my-posts-page/my-posts.html">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                                class="bi bi-chat-square-dots" viewBox="0 0 16 16">
-                                <path
-                                    d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
-                                <path
-                                    d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0" />
-                            </svg>
-                            <h4 class="mb-0 ms-2">My Posts</h4>
-                        </a>
-                        <a class="side-bar-like" id="likedPosts" href="/liked-posts-page/liked-posts.html">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                                class="bi bi-heart-fill" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd"
-                                    d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
-                            </svg>
-                            <h4 class="mb-0 ms-2">Liked Posts</h4>
-                        </a>
-                        <a class="side-bar-profile" id="profile" href="/profile-page/profile.html">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-                                class="bi bi-person" viewBox="0 0 16 16">
-                                <path
-                                    d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664z" />
-                            </svg>
-                            <h4 class="mb-0 ms-2">My Profile</h4>
-                        </a>
+                        <div id="allLinks">
+                            <a class="side-bar-home" id="home" href="/posts-page/posts.html">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                                    class="bi bi-house-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293z" />
+                                    <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z" />
+                                </svg>
+                                <h4 class="mb-0 ms-2">Home</h4>
+                            </a>
+                            <a class="side-bar-post" id="myPosts" href="/my-posts-page/my-posts.html">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                                    class="bi bi-chat-square-dots" viewBox="0 0 16 16">
+                                    <path
+                                        d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
+                                    <path
+                                        d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0" />
+                                </svg>
+                                <h4 class="mb-0 ms-2">My Posts</h4>
+                            </a>
+                            <a class="side-bar-like" id="likedPosts" href="/liked-posts-page/liked-posts.html">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                                    class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+                                </svg>
+                                <h4 class="mb-0 ms-2">Liked Posts</h4>
+                            </a>
+                            <a class="side-bar-profile" id="profile" href="/profile-page/profile.html">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                    class="bi bi-person" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664z" />
+                                </svg>
+                                <h4 class="mb-0 ms-2">My Profile</h4>
+                            </a>
+                        </div>
                         <hr />
                         <div class="text-center">
                             <button class="btn btn-dark col-4 p-2" id="logoutButton" onclick="logoutButtonCliked()">
@@ -92,7 +94,7 @@
 				
 				<section class="post-section col-12 col-md-8">
 					<div class="row">
-						<div class="col pe-0">
+						<div class="col-1 pe-0">
 							<button id="goBackButton">
 								<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
 									class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
@@ -101,7 +103,7 @@
 								</svg>
 							</button>
 						</div>
-						<div class="search-section col-7 col-sm-6 ps-0">
+						<div class="search-section col-lg-7 col-sm-6 col-9 ps-1 pe-0">
 							<div class="input-group rounded">
 								<input type="search" id="searchInput" class="form-control rounded ps-3 pt-2 pb-2"
 									placeholder="Search username" aria-label="Search" aria-describedby="search-addon" />
@@ -117,7 +119,7 @@
 								</span>
 							</div>
 						</div>
-						<div class="form-group col-4">
+						<div class="form-group col-sm-4 col-8">
 							<select name="sortSelect" id="sortSelect" class="form-select pt-2 pb-2">
 								<option value="0">Sort By</option>
 								<option selected value="recent">Most Recent</option>
@@ -127,41 +129,42 @@
 						</div>
 					</div>
 					<!-- template to use for each post -->
-					<template class="mt-5" id="postTemplate">
-						<div class="card border-light mb-3">
-							<div class="card-header fw-bold">
-								<div class="user-time">
-									<div id="userName">anya.forger</div>
-									<div class="opacity-50 pb-1">
-										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-											class="bi bi-dot" viewBox="0 0 16 16">
-											<path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3" />
-										</svg>
-									</div>
-									<div id="timeStamp" class="opacity-75"></div>
-								</div>
-							</div>
-							<div class="card-body">
-								<p class="card-text" id="textPost">
-									Lorem ipsum dolor sit amet consectetur adipisicing elit.
-									Aliquam corporis nisi hic. Voluptatibus libero minus mollitia
-									est praesentium fuga odit necessitatibus possimus,
-									perspiciatis aut accusantium dolore modi laudantium impedit
-									voluptatum!
-								</p>
-							</div>
-							<div class="card-footer text-body-secondary like-section">
-								<button id="likePost">
-									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-										class="bi bi-heart" viewBox="0 0 16 16">
-										<path
-											d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
-									</svg>
-								</button>
-								<div class="pt-1" id="numOfLikes"></div>
-							</div>
-						</div>
-					</template>
+                    <template class="mt-5" id="postTemplate">
+                        <div class="card border-light mb-3">
+                            <div class="card-header fw-bold">
+                                <div class="row">
+                                    <div class="user-time col-11">
+                                        <div id="userName">anya.forger</div>
+                                        <div class="opacity-50 pb-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dot" viewBox="0 0 16 16">
+                                                <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/>
+                                            </svg>
+                                        </div>
+                                        <div id="timeStamp" class="opacity-75"></div>
+                                    </div>
+                                    <div class="col-1 text-center">
+                                        <button id="deletePost" type="button" data-bs-toggle="modal" data-bs-target="#deletedMessage" hidden>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+                                                <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text" id="textPost">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam corporis nisi hic. Voluptatibus libero minus mollitia est praesentium fuga odit necessitatibus possimus, perspiciatis aut accusantium dolore modi laudantium impedit voluptatum!</p>
+                            </div>
+                            <div class="card-footer text-body-secondary like-section">
+                                <button id="likePost">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                                    </svg>
+                                </button>
+                                <div class="pt-1" id="numOfLikes"></div>
+                            </div>
+                        </div>
+                    </template>
 					<!-- container for all posts -->
 					<div class="mt-4" id="postsContainer"></div>
 
@@ -170,6 +173,18 @@
 					</div>
 				</section>
 			</div>
+
+			<!-- modal for whenever the user deletes a post -->
+            <div class="modal fade" id="deletedMessage" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5">Successfully deleted the post!</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeMessage()"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 			<!-- modal for asking the user to sign in first -->
 			<div class="modal fade" id="signInFirst" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
