@@ -57,6 +57,7 @@ async function getAllPosts() {
         allPosts.forEach(post => {
             displayPosts(post);
         });
+        document.getElementById("errorMessage").hidden = true
     }
     else {
         document.getElementById("errorMessage").hidden = false;
@@ -171,7 +172,12 @@ function isItLiked(post, likePostButton) {
 // To test if there's a filter or not
 async function filteredOrNot() {
     const searchInput = document.getElementById("searchInput").value;
-    if (searchInput != "") allPosts = await postService.getByUser(searchInput, loginData);
+    if (searchInput != "") {
+        const temp = loginData.username;
+        loginData.username = searchInput;
+        allPosts = await postService.getByUser(loginData);
+        loginData.username = temp;
+    }
     else allPosts = await postService.getAll(loginData);
 }
 
