@@ -45,40 +45,46 @@ async function loadCurrentData() {
 async function updateButtonClicked(event) {
     event.preventDefault();
 
-    const newData = {
-        username: newUsername.value,
-        fullName: newName.value,
-        bio: newBio.value,
-        currentPassword: currentPassword.value,
-        password: newPassword.value
-    }
-    
-    const updated = await usersService.updateInfo(loginData, newData);
-
-    if (updated.status >= 200 && updated.status < 300) {
-        const userLogin = {
-            "username": newData.username,
-            "password": newData.password
-        }
-        await usersService.changeLoginData(userLogin);
-
-        document.getElementById("forModal").innerHTML = `<div class="modal fade" id="updatedMessage" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
-                                                            <div class="modal-dialog">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h1 class="modal-title fs-5">User info has been successfully updated!</h1>
-                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeMessage()"></button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>`
-        myModal = bootstrap.Modal.getOrCreateInstance('#updatedMessage');
-        myModal.show();
+    if (newPassword.value == "") {
+        alert("New password can't be blank.");
     }
     else {
-        console.log(updated);
-        alert("Please enter the correct password")
+        const newData = {
+            username: newUsername.value,
+            fullName: newName.value,
+            bio: newBio.value,
+            currentPassword: currentPassword.value,
+            password: newPassword.value
+        }
+        
+        const updated = await usersService.updateInfo(loginData, newData);
+    
+        if (updated.status >= 200 && updated.status < 300) {
+            const userLogin = {
+                "username": newData.username,
+                "password": newData.password
+            }
+            await usersService.changeLoginData(userLogin);
+    
+            document.getElementById("forModal").innerHTML = `<div class="modal fade" id="updatedMessage" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+                                                                <div class="modal-dialog">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h1 class="modal-title fs-5">User info has been successfully updated!</h1>
+                                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeMessage()"></button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>`
+            myModal = bootstrap.Modal.getOrCreateInstance('#updatedMessage');
+            myModal.show();
+        }
+        else {
+            console.log(updated);
+            alert("Please enter the correct password");
+        }
     }
+    
 }
 
 function closeMessage() {
