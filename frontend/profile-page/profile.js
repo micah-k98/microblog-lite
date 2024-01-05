@@ -2,7 +2,7 @@
 
 let authService, usersService, postService;
 let loginData, userData;
-let userFullName, userBio, newPost, currentPostId, counter, myModal;
+let icon, userFullName, userBio, newPost, currentPostId, counter, myModal;
 
 document.addEventListener("DOMContentLoaded", ()=> {
     // Set variables
@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", ()=> {
     }
 
 
+    icon = document.querySelector(".bi-person-circle");
     userFullName = document.getElementById("userFullName");
     userBio = document.getElementById("userBio");
     newPost = document.getElementById("newPost");
@@ -35,6 +36,7 @@ async function displayUserInfo() {
     loginData = await authService.getLoginData();
     userData = await usersService.getCurrent(loginData);
     
+    icon.setAttribute("id", userData.icon);
     userFullName.innerText = userData.fullName;
     if (userData.bio == null || userData.bio == "") {
         userBio.innerText = "Spill the tea on your awesome self!"
