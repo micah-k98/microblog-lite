@@ -2,7 +2,7 @@
 
 let authService, usersService;
 let loginData, userData;
-let newUsername, newName, newBio, currentPassword, newPassword, updateButton, myModal;
+let profileIconColor, newUsername, newName, newBio, currentPassword, newPassword, updateButton, myModal;
 
 document.addEventListener("DOMContentLoaded", ()=> {
     // Set variables
@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", ()=> {
     }
     
 
+    profileIconColor = document.getElementById("profileIconColor");
     newUsername = document.getElementById("newUsername");
     newName = document.getElementById("newName");
     newBio = document.getElementById("newBio");
@@ -28,6 +29,7 @@ document.addEventListener("DOMContentLoaded", ()=> {
 
     // Register events
     updateButton.addEventListener("click", updateButtonClicked)
+    profileIconColor.addEventListener("change", getIconColor)
 
     // Call these functions when the page loaded
     loadCurrentData();
@@ -37,9 +39,15 @@ async function loadCurrentData() {
     loginData = await authService.getLoginData();
     userData = await usersService.getCurrent(loginData);
 
+    if (userData.icon == null || userData.icon == "") {
+        profileIconColor.value = "blueWhite";
+    }
+    else profileIconColor.value = userData.icon;
     newUsername.value = userData.username;
     newName.value = userData.fullName;
     newBio.value = userData.bio;
+
+    getIconColor();
 }
 
 async function updateButtonClicked(event) {
@@ -53,6 +61,7 @@ async function updateButtonClicked(event) {
             username: newUsername.value,
             fullName: newName.value,
             bio: newBio.value,
+            icon: profileIconColor.value,
             currentPassword: currentPassword.value,
             password: newPassword.value
         }
@@ -85,6 +94,13 @@ async function updateButtonClicked(event) {
         }
     }
     
+}
+
+function getIconColor() {
+    const selectedColor = profileIconColor.value;
+    const icon = document.querySelector(".bi-person-circle");
+
+    icon.setAttribute("id", selectedColor);
 }
 
 function closeMessage() {

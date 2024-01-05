@@ -41,3 +41,32 @@ hr {
 /* #logoutButton {
     margin-top: 3rem;
 } */ 
+
+
+
+/* EDIT PROFILE PAGE */
+
+.select-icon-color {
+    display: flex;
+    align-items: center;
+}
+
+#blueWhite {
+    color: #7b8ab8;
+}
+
+#greenYellow {
+    color: #65855e;
+}
+
+#redPink {
+    color: #b16363;
+}
+
+#brownPeach {
+    color: #714b11;
+}
+
+#blackWhite {
+    color: #2b2626;
+}

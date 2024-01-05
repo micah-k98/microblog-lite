@@ -90,6 +90,24 @@
         
                 <section class="post-section col-md-8 col-sm-12">
                     <form>
+                        <div class="row select-icon-color">
+                            <div class="col-2 text-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                                </svg>
+                            </div>
+                            <div class="col-8">
+                                <label for="profileIconColor" class="form-label fs-5">Please select your preferred profile icon color</label>
+                                <select name="profileIconColor" id="profileIconColor" class="form-select pt-2 pb-2">
+                                    <option value="blueWhite">Blue (light mode) / White (dark mode)</option>
+                                    <option value="greenYellow">Green (light mode) / Yellow (dark mode)</option>
+                                    <option value="redPink">Red (light mode) / Pink (dark mode)</option>
+                                    <option value="brownPeach">Brown (light mode) / Peach (dark mode)</option>
+                                    <option value="blackWhite">Black (light mode) / White (dark mode)</option>
+                                </select>
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label for="newUsername" class="form-label fs-5">Username</label>
                             <input type="text" id="newUsername" class="form-control">

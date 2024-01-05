@@ -84,3 +84,27 @@ body.dark-mode #goBackButton {
 .bi-heart {
     color: #9e4c4cd0;
 }
+
+
+
+/* EDIT PRROFILE PAGE */
+
+.dark-mode #blueWhite {
+    color: #d7dbdb;
+}
+
+.dark-mode #greenYellow {
+    color: #f5ef92;
+}
+
+.dark-mode #redPink {
+    color: #f1c3d4;
+}
+
+.dark-mode #brownPeach {
+    color: #eda9a9;
+}
+
+.dark-mode #blackWhite {
+    color: #f1f1f1;
+}
