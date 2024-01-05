@@ -48,6 +48,31 @@ class PostService extends ServicesBase
         return fetch(`${this.apiBaseUrl}?limit=100`, requestInfo).then(response => response.json())
     }
 
+    // GET
+    async getOne(id, loginData) {
+        const requestInfo = {
+            headers: {
+                "Authorization": `Bearer ${loginData.token}`
+            }
+        }
+
+        return fetch(`${this.apiBaseUrl}/${id}`, requestInfo).then(response => response.json())
+    }
+
+    // PUT
+    async updatePost(id, loginData, newData) {
+        const requestInfo = {
+            method: "PUT",
+            body: JSON.stringify(newData),
+            headers: {
+                "Content-type": "application/json;charset=UTF-8",
+                "Authorization": `Bearer ${loginData.token}`
+            }
+        }
+
+        return fetch(`${this.apiBaseUrl}/${id}`, requestInfo);
+    }
+
     // DELETE
     async delete(id, loginData) {
         const requestInfo = {

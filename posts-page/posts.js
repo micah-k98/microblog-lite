@@ -74,6 +74,12 @@ function displayPosts(post) {
     card.getElementById("textPost").innerText = post.text;
 
     if (loginData.username == post.username) {
+        const editPostButton = card.getElementById("editPost");
+            editPostButton.hidden = false;
+            editPostButton.addEventListener("click", async () => {
+                location.href = `/profile-page/profile.html?id=${post._id}`
+            })
+            
         const deletePostButton = card.getElementById("deletePost");
                 deletePostButton.hidden = false;
                 deletePostButton.addEventListener("click", async () => {
